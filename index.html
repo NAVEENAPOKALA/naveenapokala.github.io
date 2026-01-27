@@ -33,16 +33,31 @@
     }
 
     h3 {
-      font-size: 22px;
+      font-size: 24px;
       margin-top: 0;
       color: #e5e7eb;
     }
 
+    h4 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
     p {
-      max-width: 760px;
+      max-width: 900px;
       line-height: 1.7;
       font-size: 17px;
       color: #cbd5f5;
+    }
+
+    ul {
+      max-width: 950px;
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
     }
 
     a {
@@ -65,9 +80,9 @@
       background: rgba(30, 41, 59, 0.65);
       border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 16px;
-      padding: 30px;
+      padding: 32px;
       margin-top: 40px;
-      max-width: 1000px;
+      max-width: 1050px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -88,8 +103,8 @@
     }
 
     .section-title {
-      margin-top: 90px;
-      font-size: 26px;
+      margin-top: 100px;
+      font-size: 28px;
       color: #e5e7eb;
     }
 
@@ -107,17 +122,19 @@
 
   <!-- HERO -->
   <h1>Naveena Pokala</h1>
-  <h2>ML / AI Engineer</h2>
+  <h2>ML / AI Engineer · Software Engineer</h2>
 
   <p>
-    I build production-grade machine learning and GenAI systems, with a strong
-    focus on large language models, hybrid time-series modeling, and translating
-    research into real-world impact.
+    I build production-grade machine learning and GenAI systems, backed by
+    6+ years of experience designing, scaling, and supporting cloud-native
+    software platforms in enterprise environments.
   </p>
 
   <!-- NAV -->
   <div class="nav">
     <a href="projects.html">Projects</a>
+    <a href="#software">Software Engineering</a>
+    <a href="#certifications">Certifications</a>
     <a href="Resume_NaveenaPokala.pdf" target="_blank">Resume</a>
     <a href="https://github.com/NAVEENAPOKALA" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/naveenapokala" target="_blank">LinkedIn</a>
@@ -131,70 +148,95 @@
     <p>
       Ongoing AI/ML research project at UNC Greensboro focused on predicting
       long-horizon stock price movements by integrating textual signals from
-      annual reports with numerical market time-series data using LLM-based
-      representations.
+      annual reports with numerical market time-series data.
     </p>
 
     <p>
-      <strong>Tech:</strong> LLaMA-2, PyTorch, CNNs, Time-Series Modeling,
-      FAISS, Python
-    </p>
-
-    <p>
-      <strong>Impact:</strong> 32–45% lower MAPE compared to ARIMA baselines ·
-      Paper accepted at ACDSA 2026
+      <strong>Impact:</strong> 32–45% lower MAPE vs ARIMA · Paper accepted (ACDSA 2026)
     </p>
 
     <a href="projects.html">View Research Project →</a>
   </div>
 
-  <!-- SECONDARY PROJECT -->
-  <div class="card">
-    <span class="badge">Applied GenAI System</span>
-    <h3>AI-Powered Academic Assistant</h3>
-
-    <p>
-      A production-ready GenAI system leveraging retrieval-augmented generation
-      and multi-agent LLM workflows to search, summarize, and validate academic
-      content at scale.
-    </p>
-
-    <p>
-      <strong>Tech:</strong> LangChain, FAISS, HuggingFace, FastAPI, PyTorch
-    </p>
-
-    <p>
-      <strong>Impact:</strong> 35% accuracy improvement · Sub-200ms inference latency
-    </p>
-
-    <a href="projects.html">View Project →</a>
-  </div>
-
-  <!-- WHAT I DO -->
-  <h3 class="section-title">What I Work On</h3>
+  <!-- SOFTWARE ENGINEERING EXPERIENCE -->
+  <h3 id="software" class="section-title">Software Engineering Experience</h3>
 
   <div class="card">
-    <span class="badge">Applied ML & Research</span>
-    <p>
-      Designing and evaluating hybrid ML systems that combine LLM representations
-      with structured numerical and temporal data.
-    </p>
-  </div>
+    <span class="badge">Ernst & Young · Morgan Stanley</span>
+    <h4>Software Engineer</h4>
+    <p><em>June 2022 – April 2024</em></p>
 
-  <div class="card">
-    <span class="badge">GenAI Systems</span>
-    <p>
-      Building retrieval-augmented generation pipelines, agentic workflows,
-      and scalable inference services for real-world applications.
-    </p>
+    <ul>
+      <li>
+        Architected and developed high-availability microservices using Java,
+        Spring Boot, and Node.js, supporting 10,000+ daily transactions with
+        99.9% uptime across cloud infrastructure.
+      </li>
+      <li>
+        Built Python-based automation scripts to validate datasets, identify
+        discrepancies, and proactively flag data quality issues in upstream
+        processing pipelines.
+      </li>
+      <li>
+        Designed CI/CD pipelines using Jenkins and Git with automated builds,
+        testing, and multi-environment deployments on AWS.
+      </li>
+      <li>
+        Implemented event-driven architectures using Kafka and RabbitMQ to
+        improve scalability and system decoupling.
+      </li>
+      <li>
+        Migrated 100+ batch jobs to AWS Lambda and CloudWatch, reducing operational
+        costs by 25% and improving reliability.
+      </li>
+    </ul>
   </div>
 
   <div class="card">
-    <span class="badge">ML Engineering</span>
-    <p>
-      Developing end-to-end ML pipelines including data ingestion, feature
-      engineering, distributed training, evaluation, and deployment.
-    </p>
+    <span class="badge">Tata Consultancy Services · TCS BaNCS</span>
+    <h4>System Engineer / Team Lead</h4>
+    <p><em>June 2019 – June 2022</em></p>
+
+    <ul>
+      <li>
+        Delivered 50+ full-stack applications using Java, Spring Boot, Python,
+        and Angular across the complete software development lifecycle.
+      </li>
+      <li>
+        Built cloud-native microservices and REST APIs integrated with
+        enterprise databases and backend systems.
+      </li>
+      <li>
+        Developed comprehensive testing strategies using JUnit and Mockito,
+        achieving 90%+ code coverage with TDD/BDD practices.
+      </li>
+      <li>
+        Led an Agile team of 5 engineers, facilitating sprint planning,
+        reviews, and iterative delivery.
+      </li>
+      <li>
+        Optimized database performance through SQL tuning and NoSQL modeling,
+        reducing query execution time by 30%.
+      </li>
+    </ul>
+  </div>
+
+  <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+  <h3 id="certifications" class="section-title">Certifications & Achievements</h3>
+
+  <div class="card">
+    <ul>
+      <li>
+        📄 <strong>Paper Accepted:</strong> <em>Stock Price Prediction Based on Annual Reports Using Large Language Models</em>
+        — ACDSA 2026
+      </li>
+      <li>
+        ☁️ <strong>AWS Certified Cloud Practitioner (CLF-C01)</strong> — Valid through April 2026
+      </li>
+      <li>
+        ⭐ <strong>Star of the Month Award</strong> — Tata Consultancy Services (Sep 2021)
+      </li>
+    </ul>
   </div>
 
   <!-- FOOTER -->
