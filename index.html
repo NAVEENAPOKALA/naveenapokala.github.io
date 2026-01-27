@@ -4,49 +4,178 @@
   <meta charset="UTF-8" />
   <title>Naveena Pokala | ML / AI Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
       color: #e5e7eb;
       margin: 0;
-      padding: 60px;
+      padding: 80px 10%;
     }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 56px;
+      font-weight: 700;
+      margin-bottom: 6px;
     }
+
     h2 {
-      font-weight: normal;
+      font-size: 22px;
+      font-weight: 500;
       color: #94a3b8;
+      margin-top: 0;
     }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 0;
+      color: #e5e7eb;
+    }
+
     p {
-      max-width: 700px;
-      line-height: 1.6;
-      margin-top: 20px;
+      max-width: 760px;
+      line-height: 1.7;
+      font-size: 17px;
+      color: #cbd5f5;
     }
+
     a {
       color: #38bdf8;
       text-decoration: none;
-      margin-right: 15px;
+      font-weight: 500;
+      margin-right: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .nav {
+      margin-top: 30px;
+      margin-bottom: 70px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 40px;
+      max-width: 960px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      margin-top: 90px;
+      font-size: 26px;
+      color: #e5e7eb;
+    }
+
+    footer {
+      margin-top: 120px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+      color: #94a3b8;
+      font-size: 14px;
     }
   </style>
 </head>
+
 <body>
 
+  <!-- HERO -->
   <h1>Naveena Pokala</h1>
   <h2>ML / AI Engineer</h2>
 
   <p>
-    I build production-scale GenAI and LLM-powered systems,
-    focusing on retrieval-augmented generation, agentic workflows,
-    and scalable ML pipelines.
+    I build production-grade GenAI and machine learning systems, specializing in
+    retrieval-augmented generation, agentic workflows, and scalable ML pipelines
+    deployed in real-world environments.
   </p>
 
-  <p>
+  <!-- NAV -->
+  <div class="nav">
     <a href="projects.html">Projects</a>
     <a href="Resume_NaveenaPokala.pdf" target="_blank">Resume</a>
     <a href="https://github.com/NAVEENAPOKALA" target="_blank">GitHub</a>
-  </p>
+    <a href="https://www.linkedin.com/in/naveenapokala" target="_blank">LinkedIn</a>
+  </div>
+
+  <!-- FEATURED PROJECT -->
+  <div class="card">
+    <span class="badge">Flagship GenAI Project</span>
+    <h3>AI-Powered Academic Assistant</h3>
+
+    <p>
+      A production-ready GenAI system that uses retrieval-augmented generation
+      and multi-agent LLM workflows to search, summarize, and validate academic
+      content across large document collections.
+    </p>
+
+    <p>
+      <strong>Tech:</strong> LangChain, FAISS, HuggingFace, PyTorch, FastAPI
+    </p>
+
+    <p>
+      <strong>Impact:</strong> 35% accuracy improvement · Sub-200ms inference latency
+    </p>
+
+    <a href="projects.html">View Project →</a>
+  </div>
+
+  <!-- WHAT I DO -->
+  <h3 class="section-title">What I Work On</h3>
+
+  <div class="card">
+    <span class="badge">GenAI & LLM Systems</span>
+    <p>
+      Designing and deploying RAG pipelines, multi-agent LLM systems, prompt
+      optimization strategies, and scalable inference services.
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="badge">ML Engineering</span>
+    <p>
+      Building end-to-end ML pipelines including data ingestion, feature
+      engineering, model training, evaluation, and monitoring.
+    </p>
+  </div>
+
+  <div class="card">
+    <span class="badge">Applied Research</span>
+    <p>
+      Translating research ideas into production-ready systems, combining
+      LLM representations with time-series and structured data.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Naveena Pokala · Built with GitHub Pages
+  </footer>
+
 </body>
 </html>
