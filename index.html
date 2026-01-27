@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveena Pokala | AI & Software Engineer</title>
+    <title>Naveena Pokala | AI/ML & Software Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -30,21 +30,21 @@
 
         /* --- Header --- */
         header { margin-bottom: 60px; text-align: left; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 4rem; margin: 0; letter-spacing: -3px; }
-        .tagline { color: var(--accent); font-size: 1.2rem; font-weight: 500; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
+        .tagline { color: var(--accent); font-size: 1.1rem; font-weight: 500; max-width: 700px; margin-top: 10px; }
         
-        .nav-pills { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
-        .nav-pills a { 
+        .nav-links { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+        .nav-links a { 
             text-decoration: none; color: var(--text-dim); border: 1px solid var(--border);
             padding: 8px 20px; border-radius: 99px; font-size: 0.9rem; transition: 0.3s;
         }
-        .nav-pills a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+        .nav-links a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
         /* --- Bento Grid --- */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(180px, auto);
+            grid-auto-rows: minmax(200px, auto);
             gap: 20px;
         }
 
@@ -56,57 +56,37 @@
             backdrop-filter: blur(10px);
             position: relative;
             cursor: pointer;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             overflow: hidden;
         }
 
-        .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border-color: var(--accent);
-        }
-
-        .card h3 { margin-top: 0; font-family: 'Space Grotesk'; font-size: 1.5rem; }
+        .card:hover { transform: scale(1.02); border-color: var(--accent); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .span-2 { grid-column: span 2; }
         .row-2 { grid-row: span 2; }
 
-        /* --- Specialized Elements --- */
-        .gpa-circle {
-            width: 100px; height: 100px; border: 4px solid var(--accent);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
-        }
+        .btn-view { position: absolute; bottom: 25px; right: 25px; color: var(--accent); font-weight: 600; font-size: 0.8rem; }
 
-        .btn-more {
-            position: absolute; bottom: 20px; right: 20px;
-            color: var(--accent); font-weight: 600; font-size: 0.85rem;
-        }
-
-        /* --- Modals (The "View More" Logic) --- */
+        /* --- Modal System --- */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(2, 6, 23, 0.95);
+            background: rgba(2, 6, 23, 0.98);
             display: none; justify-content: center; align-items: center;
             z-index: 1000; padding: 20px;
         }
 
         .modal-content {
             background: #0f172a; border: 1px solid var(--accent);
-            padding: 50px; border-radius: 30px; max-width: 800px; width: 100%;
-            max-height: 80vh; overflow-y: auto; position: relative;
+            padding: 40px; border-radius: 30px; max-width: 900px; width: 100%;
+            max-height: 85vh; overflow-y: auto; position: relative;
         }
 
-        .close-modal {
-            position: absolute; top: 20px; right: 25px;
-            font-size: 2rem; cursor: pointer; color: var(--text-dim);
-        }
+        .close-btn { position: absolute; top: 20px; right: 30px; font-size: 2rem; cursor: pointer; color: var(--text-dim); }
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 12px; font-size: 0.95rem; color: var(--text-dim); }
+        strong { color: var(--text-main); }
 
-        /* --- Responsive --- */
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            h1 { font-size: 3rem; }
-        }
+        @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr 1fr; } }
     </style>
 </head>
 <body>
@@ -114,140 +94,159 @@
 <div class="container">
     <header>
         <h1>Naveena Pokala</h1>
-        <div class="tagline">ML / AI Engineer • Software Architect</div>
-        <div class="nav-pills">
-            <a href="https://github.com/NAVEENAPOKALA">GitHub</a>
+        <div class="tagline">Innovative AI/ML Engineer with 6 years of experience researching, building, and deploying production-scale AI systems. Specializing in LLMs and Generative AI.</div>
+        <div class="nav-links">
             <a href="https://linkedin.com/in/naveenapokala">LinkedIn</a>
-            <a href="Resume_NaveenaPokala.pdf">Download Resume</a>
+            <a href="https://github.com/NAVEENAPOKALA">GitHub</a>
+            <a href="mailto:n_pokala@uncg.edu">n_pokala@uncg.edu</a>
+            <a href="#">Download Resume</a>
         </div>
     </header>
 
     <div class="bento-grid">
-        <div class="card row-2" onclick="openModal('edu-modal')">
-            <div class="gpa-circle">3.96</div>
-            <h3>Education</h3>
+        <div class="card" onclick="openModal('modal-edu')">
+            <h2 style="font-size: 3rem; margin: 0; color: var(--accent);">3.96</h2>
             <p><strong>MS in Computer Science</strong><br>UNC Greensboro</p>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Class of 2026</p>
-            <div class="btn-more">Details →</div>
+            <div class="btn-view">View Courses →</div>
         </div>
 
-        <div class="card span-2 row-2" onclick="openModal('project-modal')">
-            <span style="color: var(--accent); font-weight: 600; font-size: 0.8rem;">FLAGSHIP RESEARCH</span>
-            <h3 style="font-size: 2.2rem; margin: 10px 0;">Stock Price Prediction using LLMs</h3>
-            <p>Integrating textual signals from annual reports with market time-series data. Accepted at ACDSA 2026.</p>
-            <div style="margin-top: 20px;">
-                <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 8px; font-size: 0.8rem; margin-right: 5px;">PyTorch</span>
-                <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 8px; font-size: 0.8rem; margin-right: 5px;">Transformers</span>
-            </div>
-            <div class="btn-more">View Impact →</div>
+        <div class="card span-2" onclick="openModal('modal-pub')">
+            <span style="color: var(--accent); font-size: 0.8rem; font-weight: 600;">LATEST PUBLICATION</span>
+            <h3>ACDSA 2026</h3>
+            <p>Stock Prediction Based on Annual Reports Using Large Language Models.</p>
+            <div class="btn-view">Read Abstract →</div>
         </div>
 
-        <div class="card" onclick="openModal('exp1-modal')">
-            <h3>EY • Morgan Stanley</h3>
-            <p style="font-size: 0.9rem; color: var(--text-dim);">Software Engineer<br>2022 – 2024</p>
-            <div class="btn-more">History →</div>
+        <div class="card" onclick="openModal('modal-skills')">
+            <h3>Technical Skills</h3>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">LLMs, PyTorch, LangChain, AWS, Jenkins, Kafka...</p>
+            <div class="btn-view">Full Stack →</div>
         </div>
 
-        <div class="card" onclick="openModal('skills-modal')">
-            <h3>Core Stack</h3>
-            <p style="font-size: 0.9rem; color: var(--text-dim);">Java, Python, AWS, GenAI, Kafka...</p>
-            <div class="btn-more">Stack →</div>
+        <div class="card span-2 row-2" onclick="openModal('modal-exp-uncg')">
+            <span style="color: var(--accent); font-size: 0.8rem; font-weight: 600;">CURRENT ROLE</span>
+            <h3>AI/ML Research Assistant</h3>
+            <p>UNC Greensboro (2025 – Present)</p>
+            <p style="color: var(--text-dim);">Improving model performance by 32-45% using LLM representations for financial time-series.</p>
+            <div class="btn-view">Details →</div>
         </div>
 
-        <div class="card span-2" onclick="openModal('exp2-modal')">
-            <h3>Tata Consultancy Services</h3>
-            <p>System Engineer & Team Lead (2019 – 2022)</p>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">Led agile teams to deliver 50+ full-stack applications.</p>
-            <div class="btn-more">Details →</div>
+        <div class="card span-2" onclick="openModal('modal-proj-ai')">
+            <h3>AI-Powered Academic Assistant</h3>
+            <p>Multi-agent LLM workflow using LangChain & FAISS.</p>
+            <div class="btn-view">System Architecture →</div>
         </div>
-    </div>
-</div>
 
-<div id="edu-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('edu-modal')">&times;</span>
-        <h2 style="color: var(--accent);">University of North Carolina at Greensboro</h2>
-        <p><strong>Master of Science in Computer Science</strong> | Aug 2024 – May 2026</p>
-        <p><strong>GPA: 3.96 / 4.0</strong></p>
-        <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
-        <h4>Relevant Coursework & Focus:</h4>
-        <ul>
-            <li>Machine Learning & Deep Learning</li>
-            <li>Database Systems & Normalization</li>
-            <li>Concurrent Programming & Synchronization</li>
-            <li>Point-to-Point Communication & Networking Protocols</li>
-        </ul>
-    </div>
-</div>
+        <div class="card span-2" onclick="openModal('modal-exp-ey')">
+            <h3>Software Engineer</h3>
+            <p>Ernst & Young (Client: Morgan Stanley)</p>
+            <p style="color: var(--text-dim);">Architected microservices for 10,000+ daily transactions with 99.9% uptime.</p>
+            <div class="btn-view">Impact →</div>
+        </div>
 
-<div id="project-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('project-modal')">&times;</span>
-        <h2 style="color: var(--accent);">Stock Price Prediction using LLMs</h2>
-        <p><em>Paper Accepted: ACDSA 2026</em></p>
-        <ul>
-            <li>Engineered a hybrid model architecture combining numerical market data with semantic signals from annual reports.</li>
-            <li>Utilized LLM-based representations to extract sentiment and risk factors from financial texts.</li>
-            <li><strong>Results:</strong> Achieved 32–45% lower MAPE compared to traditional ARIMA and basic LSTM baselines.</li>
-        </ul>
-    </div>
-</div>
+        <div class="card" onclick="openModal('modal-exp-tcs')">
+            <h3>Team Lead</h3>
+            <p>Tata Consultancy Services</p>
+            <div class="btn-view">Experience →</div>
+        </div>
 
-<div id="exp1-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('exp1-modal')">&times;</span>
-        <h2 style="color: var(--accent);">Ernst & Young · Morgan Stanley</h2>
-        <p><strong>Software Engineer</strong> | June 2022 – April 2024</p>
-        <ul>
-            <li>Architected high-availability microservices using Java, Spring Boot, and Node.js.</li>
-            <li>Developed Python automation for data validation across multi-stage pipelines.</li>
-            <li>Migrated 100+ batch jobs to AWS Lambda, reducing operational costs by 25%.</li>
-            <li>Implemented event-driven architectures with Kafka and RabbitMQ.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="exp2-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('exp2-modal')">&times;</span>
-        <h2 style="color: var(--accent);">Tata Consultancy Services</h2>
-        <p><strong>System Engineer / Team Lead</strong> | June 2019 – June 2022</p>
-        <ul>
-            <li>Led an Agile team of 5 engineers to deliver 50+ enterprise applications.</li>
-            <li>Optimized SQL execution performance by 30% through advanced tuning.</li>
-            <li>Ensured 90%+ code coverage via TDD/BDD with JUnit and Mockito.</li>
-            <li>Awarded <strong>Star of the Month</strong> (Sep 2021) for project delivery excellence.</li>
-        </ul>
-    </div>
-</div>
-
-<div id="skills-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal('skills-modal')">&times;</span>
-        <h2 style="color: var(--accent);">Technical Arsenal</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div>
-                <h4>Languages & AI</h4>
-                <p>Python, Java, C++, SQL, PyTorch, Transformers, LLMs.</p>
-            </div>
-            <div>
-                <h4>Cloud & Backend</h4>
-                <p>AWS (Lambda, S3, EC2), Spring Boot, Node.js, Kafka, Docker.</p>
-            </div>
+        <div class="card" onclick="openModal('modal-awards')">
+            <h3>Awards & Certs</h3>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">Star of the Month, AWS Certified Cloud Practitioner.</p>
+            <div class="btn-view">View All →</div>
         </div>
     </div>
 </div>
+
+<div id="modal-edu" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-edu')">&times;</span>
+    <h2 style="color: var(--accent);">Education</h2>
+    <h3>University of North Carolina at Greensboro</h3>
+    <p><strong>Master of Science in Computer Science</strong> | GPA: 3.96</p>
+    <p>August 2024 – May 2026</p>
+</div></div>
+
+<div id="modal-skills" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-skills')">&times;</span>
+    <h2 style="color: var(--accent);">Technical Skills</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div>
+            <h4>Languages & Libraries</h4>
+            <p style="color: var(--text-dim);">Python (3.8-3.12), Java, SQL, PyTorch, TensorFlow, scikit-learn, Transformers, LangChain, Pandas.</p>
+        </div>
+        <div>
+            <h4>Cloud & ML/AI</h4>
+            <p style="color: var(--text-dim);">AWS (EC2, Lambda, S3), Docker, Kubernetes, NLP, RAG, Agentic AI, Prompt Engineering.</p>
+        </div>
+    </div>
+</div></div>
+
+<div id="modal-exp-uncg" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-exp-uncg')">&times;</span>
+    <h2 style="color: var(--accent);">AI/ML Research Assistant</h2>
+    <p><strong>UNC Greensboro</strong> | Feb 2025 – Present</p>
+    <ul>
+        <li>Built end-to-end training pipelines for LLM-based models, integrating LLAMA-2 embeddings with CNN architectures to process 10,000+ documents.</li>
+        <li>Improved model performance by 32-45% (lower MAPE) versus baseline models by combining LLM representations with time-series modeling.</li>
+        <li>Engineered retrieval systems using vector embeddings and contextual chunking to align NLP text with temporal events[cite: 27].</li>
+        <li>Built distributed training pipelines using PyTorch with optimized GPU utilization[cite: 28].</li>
+    </ul>
+</div></div>
+
+<div id="modal-proj-ai" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-proj-ai')">&times;</span>
+    <h2 style="color: var(--accent);">AI-Powered Academic Assistant</h2>
+    <p><strong>GenAI + Agentic System</strong> | Feb 2025</p>
+    <ul>
+        <li>Developed a multi-agent LLM workflow using LangChain for retrieval and validation of academic content[cite: 33].</li>
+        <li>Implemented a RAG pipeline using FAISS, HuggingFace embeddings, and Zephyr-7B for Q&A over thousands of documents[cite: 34].</li>
+        <li>Optimized model prediction accuracy by 35% through advanced prompt engineering[cite: 36].</li>
+        <li>Achieved inference latency of less than 200ms using performance profiling[cite: 37].</li>
+    </ul>
+</div></div>
+
+<div id="modal-exp-ey" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-exp-ey')">&times;</span>
+    <h2 style="color: var(--accent);">Ernst & Young (Morgan Stanley)</h2>
+    <p><strong>Software Engineer</strong> | June 2022 – April 2024</p>
+    <ul>
+        <li>Architected microservices using Java/Spring Boot and Node.js with 99.9% uptime[cite: 40].</li>
+        <li>Improved user experience and development efficiency by 40% using Angular and TypeScript[cite: 41].</li>
+        <li>Migrated 100+ batch jobs to AWS Lambda, reducing operational costs by 25%.</li>
+        <li>Implemented event-driven architecture using Kafka and RabbitMQ for system scalability[cite: 43].</li>
+    </ul>
+</div></div>
+
+<div id="modal-exp-tcs" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-exp-tcs')">&times;</span>
+    <h2 style="color: var(--accent);">Tata Consultancy Services</h2>
+    <p><strong>System Engineer / Team Lead</strong> | June 2019 – June 2022</p>
+    <ul>
+        <li>Delivered 50+ full-stack web applications using Java, Python, and Angular[cite: 49].</li>
+        <li>Led Agile development team of 5 engineers, facilitating sprint ceremonies[cite: 52].</li>
+        <li>Reduced database execution time by 30% through SQL query tuning.</li>
+        <li>Achieved 90%+ code coverage using TDD/BDD methodologies with JUnit and Mockito[cite: 51].</li>
+    </ul>
+</div></div>
+
+<div id="modal-awards" class="modal"><div class="modal-content">
+    <span class="close-btn" onclick="closeModal('modal-awards')">&times;</span>
+    <h2 style="color: var(--accent);">Awards & Certifications</h2>
+    <ul>
+        <li><strong>Star of the Month Award</strong> - Tata Consultancy Services (Sep 2021) [cite: 56]</li>
+        <li><strong>AWS Certified Cloud Practitioner</strong> - Valid through April 2026 [cite: 57]</li>
+    </ul>
+</div></div>
 
 <script>
     function openModal(id) {
         document.getElementById(id).style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Stop scrolling
+        document.body.style.overflow = 'hidden';
     }
     function closeModal(id) {
         document.getElementById(id).style.display = 'none';
-        document.body.style.overflow = 'auto'; // Enable scrolling
+        document.body.style.overflow = 'auto';
     }
-    // Close modal if clicking outside the content
     window.onclick = function(event) {
         if (event.target.className === 'modal') {
             event.target.style.display = 'none';
