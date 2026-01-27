@@ -3,207 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveena Pokala | AI Engineer</title>
+    <title>Naveena Pokala | AI & Software Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #030712;
-            --card-bg: rgba(17, 24, 39, 0.7);
+            --bg: #020617;
+            --card-bg: rgba(15, 23, 42, 0.8);
             --accent: #38bdf8;
+            --text-main: #f8fafc;
             --text-dim: #94a3b8;
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --border: rgba(56, 189, 248, 0.2);
         }
 
         body {
             background-color: var(--bg);
-            color: #f8fafc;
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             margin: 0;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #030712 100%);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 0% 0%, #1e1b4b 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, #0c4a6e 0%, transparent 50%);
+            background-attachment: fixed;
         }
 
-        /* Interactive Cursor Glow */
-        #glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 0;
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        /* --- Header --- */
+        header { margin-bottom: 60px; text-align: left; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 4rem; margin: 0; letter-spacing: -3px; }
+        .tagline { color: var(--accent); font-size: 1.2rem; font-weight: 500; }
+        
+        .nav-pills { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+        .nav-pills a { 
+            text-decoration: none; color: var(--text-dim); border: 1px solid var(--border);
+            padding: 8px 20px; border-radius: 99px; font-size: 0.9rem; transition: 0.3s;
         }
+        .nav-pills a:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header { margin-bottom: 50px; }
-        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
-        .subtitle { color: var(--accent); font-weight: 500; font-size: 1.2rem; margin-top: 5px; }
-
-        /* Bento Grid Layout */
-        .grid {
+        /* --- Bento Grid --- */
+        .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(180px, auto);
             gap: 20px;
         }
 
         .card {
             background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 24px;
-            backdrop-filter: blur(12px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+            overflow: hidden;
         }
 
         .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
             border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
         }
 
-        /* Specific Card Sizes */
-        .large { grid-column: span 2; }
-        .tall { grid-row: span 2; }
+        .card h3 { margin-top: 0; font-family: 'Space Grotesk'; font-size: 1.5rem; }
+        .span-2 { grid-column: span 2; }
+        .row-2 { grid-row: span 2; }
 
-        .stat-circle {
-            width: 80px;
-            height: 80px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 15px;
+        /* --- Specialized Elements --- */
+        .gpa-circle {
+            width: 100px; height: 100px; border: 4px solid var(--accent);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
         }
 
-        .nav-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-right: 20px;
-            font-size: 0.9rem;
-            transition: color 0.2s;
+        .btn-more {
+            position: absolute; bottom: 20px; right: 20px;
+            color: var(--accent); font-weight: 600; font-size: 0.85rem;
         }
 
-        .nav-links a:hover { color: var(--accent); }
-
-        .tag {
-            display: inline-block;
-            padding: 4px 12px;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 10px;
+        /* --- Modals (The "View More" Logic) --- */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 23, 0.95);
+            display: none; justify-content: center; align-items: center;
+            z-index: 1000; padding: 20px;
         }
 
-        ul { padding-left: 18px; color: var(--text-dim); font-size: 0.9rem; }
-        li { margin-bottom: 8px; }
+        .modal-content {
+            background: #0f172a; border: 1px solid var(--accent);
+            padding: 50px; border-radius: 30px; max-width: 800px; width: 100%;
+            max-height: 80vh; overflow-y: auto; position: relative;
+        }
 
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            .large, .tall { grid-column: span 1; grid-row: span 1; }
+        .close-modal {
+            position: absolute; top: 20px; right: 25px;
+            font-size: 2rem; cursor: pointer; color: var(--text-dim);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-<div id="glow"></div>
-
 <div class="container">
     <header>
         <h1>Naveena Pokala</h1>
-        <div class="subtitle">AI / ML Engineer & Software Architect</div>
-        <div class="nav-links" style="margin-top: 20px;">
+        <div class="tagline">ML / AI Engineer • Software Architect</div>
+        <div class="nav-pills">
             <a href="https://github.com/NAVEENAPOKALA">GitHub</a>
             <a href="https://linkedin.com/in/naveenapokala">LinkedIn</a>
-            <a href="#projects">Research</a>
-            <a href="Resume_NaveenaPokala.pdf">Resume</a>
+            <a href="Resume_NaveenaPokala.pdf">Download Resume</a>
         </div>
     </header>
 
-    <div class="grid">
-        <div class="card large">
-            <span class="tag">About Me</span>
-            <p style="font-size: 1.1rem; line-height: 1.6;">
-                I bridge the gap between heavy-duty software engineering and cutting-edge GenAI. Currently optimizing long-horizon stock predictions at <strong>UNC Greensboro</strong>. I specialize in turning complex data into production-ready intelligence.
-            </p>
+    <div class="bento-grid">
+        <div class="card row-2" onclick="openModal('edu-modal')">
+            <div class="gpa-circle">3.96</div>
+            <h3>Education</h3>
+            <p><strong>MS in Computer Science</strong><br>UNC Greensboro</p>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Class of 2026</p>
+            <div class="btn-more">Details →</div>
         </div>
 
-        <div class="card">
-            <div class="stat-circle">3.96</div>
-            <strong>MS in Computer Science</strong>
-            <p style="color: var(--text-dim); font-size: 0.85rem;">UNC Greensboro<br>Expected May 2026</p>
-        </div>
-
-        <div class="card large" id="projects">
-            <span class="tag">Featured Research</span>
-            <h3 style="margin: 10px 0;">LLM-Based Stock Forecasting</h3>
-            <p style="font-size: 0.9rem; color: var(--text-dim);">
-                Integrating textual signals from annual reports with market time-series. 
-                Achieved <strong>32–45% lower error</strong> than traditional ARIMA models.
-            </p>
-            <div style="margin-top: 15px;">
-                <span class="tag">Python</span> <span class="tag">PyTorch</span> <span class="tag">Transformers</span>
+        <div class="card span-2 row-2" onclick="openModal('project-modal')">
+            <span style="color: var(--accent); font-weight: 600; font-size: 0.8rem;">FLAGSHIP RESEARCH</span>
+            <h3 style="font-size: 2.2rem; margin: 10px 0;">Stock Price Prediction using LLMs</h3>
+            <p>Integrating textual signals from annual reports with market time-series data. Accepted at ACDSA 2026.</p>
+            <div style="margin-top: 20px;">
+                <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 8px; font-size: 0.8rem; margin-right: 5px;">PyTorch</span>
+                <span style="background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 8px; font-size: 0.8rem; margin-right: 5px;">Transformers</span>
             </div>
+            <div class="btn-more">View Impact →</div>
         </div>
 
-        <div class="card tall">
-            <span class="tag">Experience</span>
-            <h4>Ernst & Young</h4>
-            <p style="font-size: 0.8rem; color: var(--accent);">2022 - 2024</p>
-            <ul>
-                <li>Architected Java microservices for 10k+ daily transactions.</li>
-                <li>Migrated 100+ jobs to AWS Lambda (-25% cost).</li>
-                <li>Built event-driven systems via Kafka.</li>
-            </ul>
+        <div class="card" onclick="openModal('exp1-modal')">
+            <h3>EY • Morgan Stanley</h3>
+            <p style="font-size: 0.9rem; color: var(--text-dim);">Software Engineer<br>2022 – 2024</p>
+            <div class="btn-more">History →</div>
         </div>
 
-        <div class="card">
-            <span class="tag">Core Stack</span>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
-                <span class="tag">GenAI</span>
-                <span class="tag">AWS</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">Kafka</span>
-                <span class="tag">Python</span>
-                <span class="tag">SQL Tuning</span>
-            </div>
+        <div class="card" onclick="openModal('skills-modal')">
+            <h3>Core Stack</h3>
+            <p style="font-size: 0.9rem; color: var(--text-dim);">Java, Python, AWS, GenAI, Kafka...</p>
+            <div class="btn-more">Stack →</div>
         </div>
 
-        <div class="card">
-            <span class="tag">Leadership</span>
-            <h4>TCS Team Lead</h4>
-            <p style="font-size: 0.8rem; color: var(--text-dim);">Led 5 engineers in delivering 50+ full-stack apps.</p>
-        </div>
-
-        <div class="card large">
-            <span class="tag">Latest Publication</span>
-            <p style="margin: 5px 0;"><strong>ACDSA 2026:</strong> "Stock Price Prediction Based on Annual Reports Using Large Language Models"</p>
+        <div class="card span-2" onclick="openModal('exp2-modal')">
+            <h3>Tata Consultancy Services</h3>
+            <p>System Engineer & Team Lead (2019 – 2022)</p>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Led agile teams to deliver 50+ full-stack applications.</p>
+            <div class="btn-more">Details →</div>
         </div>
     </div>
+</div>
 
-    <footer style="margin-top: 80px; text-align: center; color: var(--text-dim); font-size: 0.8rem;">
-        © 2026 Naveena Pokala · Powered by Code & Curiosity
-    </footer>
+<div id="edu-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('edu-modal')">&times;</span>
+        <h2 style="color: var(--accent);">University of North Carolina at Greensboro</h2>
+        <p><strong>Master of Science in Computer Science</strong> | Aug 2024 – May 2026</p>
+        <p><strong>GPA: 3.96 / 4.0</strong></p>
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+        <h4>Relevant Coursework & Focus:</h4>
+        <ul>
+            <li>Machine Learning & Deep Learning</li>
+            <li>Database Systems & Normalization</li>
+            <li>Concurrent Programming & Synchronization</li>
+            <li>Point-to-Point Communication & Networking Protocols</li>
+        </ul>
+    </div>
+</div>
+
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('project-modal')">&times;</span>
+        <h2 style="color: var(--accent);">Stock Price Prediction using LLMs</h2>
+        <p><em>Paper Accepted: ACDSA 2026</em></p>
+        <ul>
+            <li>Engineered a hybrid model architecture combining numerical market data with semantic signals from annual reports.</li>
+            <li>Utilized LLM-based representations to extract sentiment and risk factors from financial texts.</li>
+            <li><strong>Results:</strong> Achieved 32–45% lower MAPE compared to traditional ARIMA and basic LSTM baselines.</li>
+        </ul>
+    </div>
+</div>
+
+<div id="exp1-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('exp1-modal')">&times;</span>
+        <h2 style="color: var(--accent);">Ernst & Young · Morgan Stanley</h2>
+        <p><strong>Software Engineer</strong> | June 2022 – April 2024</p>
+        <ul>
+            <li>Architected high-availability microservices using Java, Spring Boot, and Node.js.</li>
+            <li>Developed Python automation for data validation across multi-stage pipelines.</li>
+            <li>Migrated 100+ batch jobs to AWS Lambda, reducing operational costs by 25%.</li>
+            <li>Implemented event-driven architectures with Kafka and RabbitMQ.</li>
+        </ul>
+    </div>
+</div>
+
+<div id="exp2-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('exp2-modal')">&times;</span>
+        <h2 style="color: var(--accent);">Tata Consultancy Services</h2>
+        <p><strong>System Engineer / Team Lead</strong> | June 2019 – June 2022</p>
+        <ul>
+            <li>Led an Agile team of 5 engineers to deliver 50+ enterprise applications.</li>
+            <li>Optimized SQL execution performance by 30% through advanced tuning.</li>
+            <li>Ensured 90%+ code coverage via TDD/BDD with JUnit and Mockito.</li>
+            <li>Awarded <strong>Star of the Month</strong> (Sep 2021) for project delivery excellence.</li>
+        </ul>
+    </div>
+</div>
+
+<div id="skills-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('skills-modal')">&times;</span>
+        <h2 style="color: var(--accent);">Technical Arsenal</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <h4>Languages & AI</h4>
+                <p>Python, Java, C++, SQL, PyTorch, Transformers, LLMs.</p>
+            </div>
+            <div>
+                <h4>Cloud & Backend</h4>
+                <p>AWS (Lambda, S3, EC2), Spring Boot, Node.js, Kafka, Docker.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-    const glow = document.getElementById('glow');
-    window.addEventListener('mousemove', (e) => {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-    });
+    function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Stop scrolling
+    }
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+        document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+    // Close modal if clicking outside the content
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
 </script>
 
 </body>
