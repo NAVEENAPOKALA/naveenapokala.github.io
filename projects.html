@@ -1,97 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects | Naveena Pokala</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #e5e7eb;
+      margin: 0;
+      padding: 80px 10%;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-top: 80px;
+      color: #e5e7eb;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 22px;
+    }
+
+    p {
+      max-width: 820px;
+      line-height: 1.7;
+      font-size: 17px;
+      color: #cbd5f5;
+    }
+
+    ul {
+      margin-top: 12px;
+      max-width: 880px;
+      line-height: 1.7;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.65);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 40px;
+      max-width: 1000px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .back {
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
 <body>
 
   <h1>Projects</h1>
-
   <p>
-    Below are selected ML, GenAI, and research-driven projects demonstrating
-    end-to-end system design, model development, and production deployment.
+    A selection of applied machine learning, GenAI, and research-driven projects
+    demonstrating end-to-end system design, model development, and production deployment.
   </p>
 
-  <hr style="margin:40px 0; border-color:#1e293b;">
-
-  <h2 style="color:#38bdf8;">Applied ML & Research Projects</h2>
+  <!-- APPLIED ML & RESEARCH -->
+  <h2>Applied ML & Research</h2>
 
   <!-- Project 1 -->
-  <h3>AI/ML Research Assistant — UNC Greensboro</h3>
-  <p><em>February 2025 – Present</em></p>
+  <div class="card">
+    <span class="badge">Applied ML · Research</span>
+    <h3>AI/ML Research Assistant — UNC Greensboro</h3>
+    <p><em>February 2025 – Present</em></p>
 
-  <ul>
-    <li>
-      Built end-to-end training and evaluation pipelines for LLM-based models,
-      integrating LLaMA-2 embeddings with CNN architectures to process 10,000+
-      natural language documents.
-    </li>
-    <li>
-      Engineered a time-series ML framework combining textual signals with
-      numerical market data for predictive analytics.
-    </li>
-    <li>
-      Developed scalable Python ML pipelines for data ingestion, preprocessing,
-      embedding generation, model training, and evaluation.
-    </li>
-    <li>
-      Designed retrieval systems using vector embeddings and contextual chunking
-      to align long-form NLP text with temporal events.
-    </li>
-    <li>
-      Built distributed PyTorch training pipelines optimized for GPU utilization.
-    </li>
-    <li>
-      Improved model performance by 32–45% (lower MAPE) compared to ARIMA baselines.
-    </li>
-  </ul>
-
-  <hr style="margin:40px 0; border-color:#1e293b;">
+    <ul>
+      <li>
+        Built end-to-end training and evaluation pipelines for LLM-based models,
+        integrating LLaMA-2 embeddings with CNN architectures to process 10,000+
+        natural language documents.
+      </li>
+      <li>
+        Engineered a time-series ML framework combining textual signals from annual
+        reports with numerical market data for predictive analytics.
+      </li>
+      <li>
+        Developed scalable Python ML pipelines for data ingestion, preprocessing,
+        embedding generation, model training, and evaluation across architectures.
+      </li>
+      <li>
+        Designed retrieval systems using vector embeddings and contextual chunking
+        to align long-form NLP text with temporal events.
+      </li>
+      <li>
+        Built distributed PyTorch training pipelines optimized for GPU utilization
+        and large-scale batch processing.
+      </li>
+      <li>
+        Achieved 32–45% lower MAPE compared to ARIMA baselines using hybrid
+        LLM + time-series modeling.
+      </li>
+    </ul>
+  </div>
 
   <!-- Project 2 -->
-  <h3>AI-Powered Academic Assistant (Flagship GenAI Project)</h3>
-  <p><em>February 2025</em></p>
+  <div class="card">
+    <span class="badge">Flagship GenAI System</span>
+    <h3>AI-Powered Academic Assistant</h3>
+    <p><em>February 2025</em></p>
 
-  <ul>
-    <li>
-      Developed a multi-agent LLM workflow using LangChain to retrieve, summarize,
-      and validate complex academic content.
-    </li>
-    <li>
-      Implemented a RAG pipeline using FAISS, HuggingFace embeddings, and Zephyr-7B
-      for context-aware Q&A over thousands of documents.
-    </li>
-    <li>
-      Built and deployed a FastAPI backend supporting parallel inference, caching,
-      and latency-optimized retrieval.
-    </li>
-    <li>
-      Applied advanced prompt engineering to improve model accuracy by 35%.
-    </li>
-    <li>
-      Achieved sub-200ms inference latency through profiling and optimization.
-    </li>
-  </ul>
+    <ul>
+      <li>
+        Developed a multi-agent LLM workflow using LangChain to retrieve, summarize,
+        and validate complex academic content.
+      </li>
+      <li>
+        Implemented a retrieval-augmented generation (RAG) pipeline using FAISS,
+        HuggingFace embeddings, and Zephyr-7B for context-aware Q&A.
+      </li>
+      <li>
+        Built and deployed a FastAPI backend supporting parallel inference,
+        caching, and latency-optimized retrieval.
+      </li>
+      <li>
+        Applied advanced prompt engineering and optimization techniques to
+        improve prediction accuracy by 35%.
+      </li>
+      <li>
+        Achieved sub-200ms inference latency through profiling and system optimization.
+      </li>
+    </ul>
+  </div>
 
-  <hr style="margin:40px 0; border-color:#1e293b;">
-
-  <h2 style="color:#38bdf8;">Academic / Coursework Projects</h2>
+  <!-- COURSEWORK -->
+  <h2>Academic / Coursework</h2>
 
   <!-- Project 3 -->
-  <h3>Bird Species Classification</h3>
+  <div class="card">
+    <span class="badge">Course Project</span>
+    <h3>Bird Species Classification</h3>
 
-  <ul>
-    <li>
-      Built a supervised image classification model to identify bird species
-      as part of a graduate-level machine learning course.
-    </li>
-    <li>
-      Implemented CNN-based models and evaluated performance using standard
-      classification metrics.
-    </li>
-  </ul>
+    <ul>
+      <li>
+        Developed a supervised image classification model to identify bird species
+        as part of a graduate-level machine learning course.
+      </li>
+      <li>
+        Implemented CNN-based architectures and evaluated performance using
+        standard classification metrics.
+      </li>
+    </ul>
 
-  <p>
-    <em>Note: Small-scale academic project focused on model training and evaluation.</em>
-  </p>
+    <p>
+      <em>
+        Small-scale academic project focused on model training, evaluation,
+        and performance analysis.
+      </em>
+    </p>
+  </div>
 
-  <p>
+  <div class="back">
     <a href="index.html">← Back to Home</a>
-  </p>
+  </div>
 
 </body>
+</html>
