@@ -53,22 +53,70 @@ body{
   box-shadow:0 0 25px rgba(56,189,248,.15);
 }
 
-/* GRID PLACEMENT */
-.header-cell{grid-column:1/4;grid-row:1}
-.about-cell{grid-column:2;grid-row:1}
+/* === GRID POSITIONING (MATCHES IMAGE EXACTLY) === */
 
-.achievements-cell{grid-column:1;grid-row:2}
-.gpa-cell{grid-column:2;grid-row:2}
-.stack-cell{grid-column:3;grid-row:2/4}
+/* Row 1 */
+.header-cell{
+  grid-column:1 / 3;
+  grid-row:1;
+}
 
-.exp-cell{grid-column:1;grid-row:3}
-.projects-cell{grid-column:2;grid-row:3}
+.about-cell{
+  grid-column:3;
+  grid-row:1;
+}
+
+/* Row 2 */
+.achievements-cell{
+  grid-column:1 / 3;
+  grid-row:2;
+}
+
+.gpa-cell{
+  grid-column:2;
+  grid-row:2;
+}
+
+.stack-cell{
+  grid-column:3;
+  grid-row:2 / 4;
+}
+
+/* Row 3 */
+.exp-cell{
+  grid-column:1 / 3;
+  grid-row:3;
+}
+
+.projects-cell{
+  grid-column:2;
+  grid-row:3;
+}
 
 /* TYPOGRAPHY */
-h1{font-family:'Space Grotesk';margin:0;font-size:2rem}
-h4{margin:0 0 6px;font-size:.9rem}
-p{margin:4px 0;font-size:.75rem;color:var(--text-dim)}
-ul{padding-left:16px;font-size:.75rem;color:var(--text-dim)}
+h1{
+  font-family:'Space Grotesk';
+  margin:0;
+  font-size:2rem;
+}
+
+h4{
+  margin:0 0 6px;
+  font-size:.9rem;
+}
+
+p{
+  margin:4px 0;
+  font-size:.75rem;
+  color:var(--text-dim);
+}
+
+ul{
+  padding-left:16px;
+  font-size:.75rem;
+  color:var(--text-dim);
+}
+
 li{margin-bottom:6px}
 
 .tag{
@@ -115,7 +163,8 @@ li{margin-bottom:6px}
 
 /* MODAL */
 .modal{
-  position:fixed;inset:0;
+  position:fixed;
+  inset:0;
   background:rgba(1,4,9,.98);
   display:none;
   justify-content:center;
@@ -136,102 +185,87 @@ li{margin-bottom:6px}
 
 <div class="bento-container">
 
-<!-- HEADER -->
-<div class="card header-cell">
-  <h1>Naveena Pokala</h1>
-  <p>AI / ML Engineer • Software Engineer</p>
-  <div style="margin-top:12px">
-    <a href="https://github.com/NAVEENAPOKALA" class="nav-link">GitHub</a>
-    <a href="https://linkedin.com/in/naveenapokala" class="nav-link">LinkedIn</a>
-    <a href="projects.html" class="nav-link">Projects</a>
-    <a href="Resume_NaveenaPokala.pdf" class="nav-link">Resume</a>
+  <!-- HEADER -->
+  <div class="card header-cell">
+    <h1>Naveena Pokala</h1>
+    <p>AI / ML Engineer • Software Engineer</p>
+    <div style="margin-top:12px">
+      <a href="https://github.com/NAVEENAPOKALA" class="nav-link">GitHub</a>
+      <a href="https://linkedin.com/in/naveenapokala" class="nav-link">LinkedIn</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="Resume_NaveenaPokala.pdf" class="nav-link">Resume</a>
+    </div>
   </div>
+
+  <!-- ABOUT -->
+  <div class="card about-cell">
+    <h4>About Me</h4>
+    <p>
+      AI/ML Research Assistant at UNC Greensboro with 6+ years of software
+      engineering experience building scalable cloud-native systems and
+      production ML pipelines.
+    </p>
+  </div>
+
+  <!-- KEY ACHIEVEMENTS -->
+  <div class="card achievements-cell">
+    <h4>Key Achievements</h4>
+    <ul>
+      <li>📄 Paper accepted at ACDSA 2026</li>
+      <li>⬇ 32–45% MAPE reduction using LLMs</li>
+      <li>☁️ 25% cost reduction via AWS Lambda</li>
+      <li>⭐ Star of the Month — TCS</li>
+    </ul>
+  </div>
+
+  <!-- GPA -->
+  <div class="card gpa-cell">
+    <div class="gpa-circle">3.96</div>
+    <p>MS in Computer Science</p>
+    <p>UNC Greensboro • May 2026</p>
+  </div>
+
+  <!-- CORE STACK -->
+  <div class="card stack-cell">
+    <h4>Core Stack</h4>
+    <span class="tag">GenAI</span>
+    <span class="tag">PyTorch</span>
+    <span class="tag">LLaMA-2</span>
+    <span class="tag">Python</span>
+    <span class="tag">AWS</span>
+    <span class="tag">Docker</span>
+    <span class="tag">Kafka</span>
+    <span class="tag">FastAPI</span>
+
+    <h4 style="margin-top:16px">Certifications</h4>
+    <p>
+      • AWS Certified Cloud Practitioner<br>
+      • Star of the Month (TCS)
+    </p>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="card exp-cell">
+    <h4>Experience</h4>
+    <p>Ernst & Young (Morgan Stanley) • 2022–2024</p>
+    <ul>
+      <li>Spring Boot microservices (99.9% uptime)</li>
+      <li>Python automation for data discrepancies</li>
+      <li>AWS Lambda & Kafka pipelines</li>
+    </ul>
+    <div class="btn-learn">Learn More</div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="card projects-cell">
+    <h4>Projects</h4>
+    <p><strong>LLM-Based Stock Price Prediction</strong></p>
+    <p>Hybrid LLM + time-series modeling</p>
+    <p>Paper Accepted • ACDSA 2026</p>
+    <div class="btn-learn">View Details</div>
+  </div>
+
 </div>
-
-<!-- ABOUT -->
-<div class="card about-cell">
-  <h4>About Me</h4>
-  <p>
-    AI/ML Research Assistant at UNC Greensboro with 6+ years of software
-    engineering experience building scalable cloud-native systems and
-    production ML pipelines.
-  </p>
-</div>
-
-<!-- KEY ACHIEVEMENTS -->
-<div class="card achievements-cell">
-  <h4>Key Achievements</h4>
-  <ul>
-    <li>📄 Paper accepted at ACDSA 2026</li>
-    <li>⬇ 32–45% MAPE reduction using LLMs</li>
-    <li>☁️ 25% cost reduction via AWS Lambda</li>
-    <li>⭐ Star of the Month — TCS</li>
-  </ul>
-</div>
-
-<!-- GPA -->
-<div class="card gpa-cell" onclick="show('edu')">
-  <div class="gpa-circle">3.96</div>
-  <p>MS in Computer Science</p>
-  <p>UNC Greensboro • May 2026</p>
-</div>
-
-<!-- CORE STACK (ROW 2 + 3) -->
-<div class="card stack-cell" onclick="show('stack')">
-  <h4>Core Stack</h4>
-  <span class="tag">GenAI</span>
-  <span class="tag">PyTorch</span>
-  <span class="tag">LLaMA-2</span>
-  <span class="tag">Python</span>
-  <span class="tag">AWS</span>
-  <span class="tag">Docker</span>
-  <span class="tag">Kafka</span>
-  <span class="tag">FastAPI</span>
-
-  <h4 style="margin-top:16px">Certifications</h4>
-  <p>• AWS Cloud Practitioner<br>• Star of the Month (TCS)</p>
-</div>
-
-<!-- EXPERIENCE -->
-<div class="card exp-cell" onclick="show('ey')">
-  <h4>Experience</h4>
-  <p>Ernst & Young • Morgan Stanley</p>
-  <ul>
-    <li>Spring Boot microservices (99.9% uptime)</li>
-    <li>Python automation for data discrepancies</li>
-    <li>AWS Lambda & Kafka pipelines</li>
-  </ul>
-  <div class="btn-learn">Learn More</div>
-</div>
-
-<!-- PROJECTS -->
-<div class="card projects-cell" onclick="show('res')">
-  <h4>Projects</h4>
-  <p><strong>LLM-Based Stock Price Prediction</strong></p>
-  <p>Hybrid LLM + time-series modeling</p>
-  <p>Paper Accepted • ACDSA 2026</p>
-  <div class="btn-learn">View Details</div>
-</div>
-
-</div>
-
-<!-- MODAL -->
-<div id="modal-ui" class="modal" onclick="this.style.display='none'">
-  <div class="modal-content" onclick="event.stopPropagation()" id="m-body"></div>
-</div>
-
-<script>
-const content={
-  edu:`<h3>Education</h3><p>MS in Computer Science<br>UNC Greensboro<br>GPA:3.96</p>`,
-  stack:`<h3>Core Stack</h3><p>Python, PyTorch, LLaMA-2, LangChain, FastAPI, AWS, Docker, Kafka</p>`,
-  ey:`<h3>Ernst & Young — Morgan Stanley</h3><ul><li>10k+ daily transactions</li><li>Python automation</li><li>AWS ECS/Lambda</li></ul>`,
-  res:`<h3>LLM-Based Stock Price Prediction</h3><ul><li>10k+ documents</li><li>32–45% MAPE reduction</li><li>Paper accepted ACDSA 2026</li></ul>`
-};
-function show(k){
-  document.getElementById('m-body').innerHTML=content[k];
-  document.getElementById('modal-ui').style.display='flex';
-}
-</script>
 
 </body>
 </html>
