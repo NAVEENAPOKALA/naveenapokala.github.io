@@ -11,36 +11,83 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      color: #e5e7eb;
-      margin: 0;
-      padding: 80px 10%;
+    :root {
+      --accent: #38bdf8;
+      --bg-dark: #020617;
+      --bg-card: rgba(30, 41, 59, 0.65);
+      --text-muted: #94a3b8;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, var(--bg-dark));
+      color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ---------- LAYOUT ---------- */
+    .container {
+      padding: 90px 10%;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 16px 10%;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    nav a {
+      color: #cbd5f5;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
     h1 {
-      font-size: 56px;
-      font-weight: 700;
+      font-size: 58px;
       margin-bottom: 6px;
     }
 
     h2 {
       font-size: 22px;
-      font-weight: 500;
-      color: #94a3b8;
+      color: var(--text-muted);
       margin-top: 0;
     }
 
-    h3 {
-      font-size: 28px;
-      margin-top: 0;
-      color: #e5e7eb;
+    h3.section-title {
+      font-size: 30px;
+      margin-top: 120px;
+      position: relative;
     }
 
-    h4 {
-      font-size: 20px;
-      margin-bottom: 4px;
+    h3.section-title::before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
     }
 
     p {
@@ -50,51 +97,33 @@
       color: #cbd5f5;
     }
 
-    ul {
-      max-width: 980px;
-      line-height: 1.7;
-      margin-top: 10px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-      margin-right: 18px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .nav {
-      margin-top: 30px;
-      margin-bottom: 70px;
-    }
-
+    /* ---------- CARDS ---------- */
     .card {
-      background: rgba(30, 41, 59, 0.65);
+      background: var(--bg-card);
       border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 16px;
-      padding: 32px;
+      border-radius: 18px;
+      padding: 34px;
       margin-top: 40px;
       max-width: 1100px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
     }
 
     .badge {
       display: inline-block;
       background: rgba(56, 189, 248, 0.18);
-      color: #38bdf8;
+      color: var(--accent);
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 13px;
@@ -102,17 +131,31 @@
       margin-bottom: 14px;
     }
 
-    .section-title {
-      margin-top: 110px;
-      font-size: 30px;
-      color: #e5e7eb;
+    ul {
+      margin-top: 10px;
+      line-height: 1.7;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    /* ---------- LINKS ---------- */
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     footer {
       margin-top: 140px;
-      padding-top: 40px;
+      padding: 40px 0;
       border-top: 1px solid rgba(148, 163, 184, 0.15);
-      color: #94a3b8;
+      color: var(--text-muted);
       font-size: 14px;
     }
   </style>
@@ -120,103 +163,114 @@
 
 <body>
 
-  <!-- HERO -->
-  <h1>Naveena Pokala</h1>
-  <h2>ML / AI Engineer · Software Engineer</h2>
-
-  <p>
-    I build production-grade machine learning and GenAI systems, backed by
-    6+ years of experience designing, scaling, and supporting cloud-native
-    software platforms in enterprise environments.
-  </p>
-
   <!-- NAV -->
-  <div class="nav">
-    <a href="projects.html">Projects</a>
+  <nav>
+    <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#certifications">Certifications & Achievements</a>
     <a href="Resume_NaveenaPokala.pdf" target="_blank">Resume</a>
-    <a href="https://github.com/NAVEENAPOKALA" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/naveenapokala" target="_blank">LinkedIn</a>
-  </div>
+  </nav>
 
-  <!-- FLAGSHIP PROJECT -->
-  <div class="card">
-    <span class="badge">Flagship · Paper Accepted</span>
-    <h3>Stock Price Prediction using LLMs</h3>
+  <div class="container">
 
-    <p>
-      Ongoing AI/ML research project at UNC Greensboro focused on predicting
-      long-horizon stock price movements by integrating textual signals from
-      annual reports with numerical market time-series data using LLM-based
-      representations.
-    </p>
+    <!-- HERO -->
+    <h1>Naveena Pokala</h1>
+    <h2>ML / AI Engineer · Software Engineer</h2>
 
     <p>
-      <strong>Impact:</strong> 32–45% lower MAPE vs ARIMA baselines ·
-      Paper accepted at ACDSA 2026
+      I build production-grade machine learning and GenAI systems, combining
+      applied research with real-world software engineering experience.
     </p>
 
-    <a href="projects.html">View Research Project →</a>
+    <!-- PROJECTS -->
+    <h3 id="projects" class="section-title">Flagship Project</h3>
+
+    <div class="card">
+      <span class="badge">Paper Accepted · ACDSA 2026</span>
+      <h3>Stock Price Prediction using LLMs</h3>
+      <p>
+        AI/ML research project integrating textual signals from annual reports
+        with numerical market data using LLM-based representations.
+      </p>
+      <p><strong>Impact:</strong> 32–45% lower MAPE vs ARIMA baselines</p>
+      <a href="projects.html">View Full Project →</a>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <h3 id="experience" class="section-title">Experience</h3>
+
+    <div class="card">
+      <span class="badge">Ernst & Young · Morgan Stanley</span>
+      <h4>Software Engineer (2022–2024)</h4>
+      <ul>
+        <li>Built high-availability microservices supporting 10,000+ daily transactions.</li>
+        <li>Developed Python automation to detect data discrepancies and validate datasets.</li>
+        <li>Designed CI/CD pipelines and event-driven systems using Kafka.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="badge">Tata Consultancy Services</span>
+      <h4>System Engineer / Team Lead (2019–2022)</h4>
+      <ul>
+        <li>Delivered 50+ full-stack enterprise applications.</li>
+        <li>Led Agile team of 5 engineers.</li>
+        <li>Optimized SQL queries reducing execution time by 30%.</li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <h3 id="education" class="section-title">Education</h3>
+
+    <div class="card">
+      <span class="badge">Graduate Study</span>
+      <h4>University of North Carolina at Greensboro</h4>
+      <p>M.S. in Computer Science · GPA 3.96</p>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <h3 id="certifications" class="section-title">Certifications & Achievements</h3>
+
+    <div class="card">
+      <ul>
+        <li>📄 Paper Accepted — Stock Price Prediction using LLMs (ACDSA 2026)</li>
+        <li>☁️ AWS Certified Cloud Practitioner</li>
+        <li>⭐ Star of the Month — TCS</li>
+      </ul>
+    </div>
+
+    <footer>
+      © 2026 Naveena Pokala · Built with GitHub Pages
+    </footer>
+
   </div>
 
-  <!-- EXPERIENCE -->
-  <h3 id="experience" class="section-title">Experience</h3>
+  <!-- INTERACTION SCRIPT -->
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
 
-  <div class="card">
-    <span class="badge">Ernst & Young · Morgan Stanley</span>
-    <h4>Software Engineer</h4>
-    <p><em>June 2022 – April 2024</em></p>
+    cards.forEach(card => observer.observe(card));
 
-    <ul>
-      <li>Architected high-availability microservices using Java, Spring Boot, and Node.js supporting 10,000+ daily transactions with 99.9% uptime.</li>
-      <li>Built Python automation scripts to detect data discrepancies and validate datasets across upstream processing pipelines.</li>
-      <li>Designed CI/CD pipelines using Jenkins and Git with automated testing and AWS deployments.</li>
-      <li>Implemented event-driven systems using Kafka and RabbitMQ to improve scalability and system decoupling.</li>
-      <li>Migrated 100+ batch jobs to AWS Lambda, reducing operational costs by 25%.</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <span class="badge">Tata Consultancy Services · TCS BaNCS</span>
-    <h4>System Engineer / Team Lead</h4>
-    <p><em>June 2019 – June 2022</em></p>
-
-    <ul>
-      <li>Delivered 50+ full-stack applications using Java, Spring Boot, Python, and Angular.</li>
-      <li>Built cloud-native microservices and REST APIs integrated with enterprise databases.</li>
-      <li>Achieved 90%+ code coverage using TDD/BDD with JUnit and Mockito.</li>
-      <li>Led an Agile team of 5 engineers across sprint planning and delivery.</li>
-      <li>Optimized database performance via SQL tuning, reducing execution time by 30%.</li>
-    </ul>
-  </div>
-
-  <!-- EDUCATION -->
-  <h3 id="education" class="section-title">Education</h3>
-
-  <div class="card">
-    <span class="badge">Graduate Education</span>
-    <h4>University of North Carolina at Greensboro</h4>
-    <p><strong>Master of Science in Computer Science</strong></p>
-    <p><em>August 2024 – May 2026 · GPA: 3.96</em></p>
-  </div>
-
-  <!-- CERTIFICATIONS -->
-  <h3 id="certifications" class="section-title">Certifications & Achievements</h3>
-
-  <div class="card">
-    <ul>
-      <li>📄 <strong>Paper Accepted:</strong> <em>Stock Price Prediction Based on Annual Reports Using Large Language Models</em> — ACDSA 2026</li>
-      <li>☁️ <strong>AWS Certified Cloud Practitioner (CLF-C01)</strong> — Valid through April 2026</li>
-      <li>⭐ <strong>Star of the Month Award</strong> — Tata Consultancy Services (Sep 2021)</li>
-    </ul>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Naveena Pokala · Built with GitHub Pages
-  </footer>
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 100;
+      navLinks.forEach(link => {
+        const section = document.querySelector(link.getAttribute('href'));
+        if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
