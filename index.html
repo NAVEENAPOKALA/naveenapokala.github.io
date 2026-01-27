@@ -4,133 +4,113 @@
 <meta charset="UTF-8">
 <title>Naveena Pokala | AI/ML Engineer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 :root{
-  --bg:#050b17;
-  --card:#0b1a2f;
-  --border:#1e3a5f;
-  --accent:#3bc9ff;
-  --text:#e6f0ff;
-  --muted:#9fb4d9;
+  --bg:#050a14;
+  --card:#0b1628;
+  --line:#2dd4ff;
+  --muted:#8fa6c9;
+  --text:#e6f1ff;
 }
 
 *{box-sizing:border-box}
 
 body{
   margin:0;
-  background:radial-gradient(circle at top,#0b1730,#050b17);
+  background:radial-gradient(circle at top,#0a1b3a,#050a14);
   font-family:'Inter',sans-serif;
   color:var(--text);
 }
 
 /* HEADER */
-.header{
-  padding:40px 6%;
+.top{
+  padding:28px 5%;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-.header h1{
+.top h1{
   margin:0;
-  font-size:36px;
+  font-size:28px;
 }
 
-.header p{
-  margin:6px 0 0;
+.top small{
   color:var(--muted);
 }
 
-.links a{
-  margin-left:16px;
-  color:var(--accent);
+.nav a{
+  margin-left:18px;
+  color:var(--line);
   text-decoration:none;
-  font-weight:500;
+  font-size:14px;
 }
 
 /* GRID */
-.dashboard{
-  padding:20px 6% 80px;
+.grid{
+  padding:10px 5% 60px;
   display:grid;
   grid-template-columns:repeat(12,1fr);
-  grid-gap:24px;
+  grid-auto-rows:160px;
+  gap:18px;
 }
 
 /* CARD */
 .card{
-  background:linear-gradient(180deg,#0b1f3a,#08162a);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:24px;
-  box-shadow:0 0 25px rgba(59,201,255,.08);
+  background:linear-gradient(180deg,#0d1f3d,#09142a);
+  border:1px solid rgba(45,212,255,.35);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 0 25px rgba(45,212,255,.12);
+  position:relative;
 }
 
-/* CARD SPANS */
-.span-3{grid-column:span 3}
-.span-4{grid-column:span 4}
-.span-5{grid-column:span 5}
-.span-6{grid-column:span 6}
-.span-8{grid-column:span 8}
-.span-9{grid-column:span 9}
-
-/* TITLES */
 .card h3{
-  margin:0 0 14px;
-  font-size:18px;
-  color:var(--accent);
+  margin:0 0 10px;
+  font-size:14px;
+  color:var(--line);
 }
 
-.card small{
+.card p,li{
+  font-size:13px;
   color:var(--muted);
-}
-
-/* GPA RING */
-.ring{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:8px solid rgba(59,201,255,.2);
-  border-top:8px solid var(--accent);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  font-weight:700;
-  margin:auto;
-}
-
-/* EXPERIENCE LIST */
-ul{
-  padding-left:18px;
   margin:0;
 }
 
-li{
-  margin-bottom:8px;
-  color:var(--muted);
+ul{padding-left:16px}
+
+/* SPANS */
+.c3{grid-column:span 3}
+.c4{grid-column:span 4}
+.c5{grid-column:span 5}
+.c6{grid-column:span 6}
+
+/* GPA */
+.ring{
+  width:90px;height:90px;
+  border-radius:50%;
+  border:6px solid rgba(45,212,255,.25);
+  border-top:6px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:22px;
+  margin:auto;
 }
 
 /* TAGS */
 .tag{
   display:inline-block;
-  padding:6px 12px;
+  padding:4px 10px;
   border-radius:999px;
-  border:1px solid var(--border);
+  border:1px solid rgba(45,212,255,.4);
   margin:4px 6px 0 0;
-  font-size:13px;
-  color:var(--accent);
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
+  font-size:12px;
+  color:var(--line);
 }
 </style>
 </head>
@@ -138,105 +118,105 @@ footer{
 <body>
 
 <!-- HEADER -->
-<div class="header">
+<div class="top">
   <div>
     <h1>Naveena Pokala</h1>
-    <p>AI / ML Engineer · Software Engineer</p>
+    <small>AI / ML Engineer · Software Engineer</small>
   </div>
-  <div class="links">
+  <div class="nav">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
     <a href="projects.html">Projects</a>
-    <a href="Resume_NaveenaPokala.pdf" target="_blank">Resume</a>
-    <a href="https://github.com/NAVEENAPOKALA" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/naveenapokala" target="_blank">LinkedIn</a>
+    <a href="Resume_NaveenaPokala.pdf">Resume</a>
   </div>
 </div>
 
-<!-- DASHBOARD -->
-<div class="dashboard">
+<!-- GRID -->
+<div class="grid">
+
+  <!-- MINI CHART -->
+  <div class="card c3">
+    <h3>Market Signals</h3>
+    <canvas id="miniChart"></canvas>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="card c5">
+    <h3>Profile</h3>
+    <p><strong>Naveena Pokala</strong></p>
+    <p>AI/ML Engineer · Software Architect</p>
+  </div>
+
+  <!-- STACK -->
+  <div class="card c4">
+    <h3>Core Stack</h3>
+    <span class="tag">GenAI</span>
+    <span class="tag">PyTorch</span>
+    <span class="tag">LLaMA-2</span>
+    <span class="tag">AWS</span>
+    <span class="tag">Docker</span>
+    <span class="tag">Kafka</span>
+  </div>
 
   <!-- GPA -->
-  <div class="card span-3">
+  <div class="card c3">
     <h3>Education</h3>
     <div class="ring">3.96</div>
-    <p style="text-align:center;margin-top:12px">
-      MS in Computer Science<br>
-      UNC Greensboro<br>
-      <small>Expected May 2026</small>
+    <p style="text-align:center;margin-top:6px">
+      MS CS<br>UNC Greensboro
     </p>
   </div>
 
-  <!-- FEATURED RESEARCH -->
-  <div class="card span-5">
+  <!-- FEATURED -->
+  <div class="card c5">
     <h3>Featured Research</h3>
-    <h2 style="margin:0 0 10px">LLM-Based Stock Forecasting</h2>
-    <canvas id="chart" height="140"></canvas>
-    <p>
-      <small>32–45% lower MAPE · Paper Accepted (ACDSA 2026)</small>
-    </p>
+    <p><strong>LLM-Based Stock Forecasting</strong></p>
+    <p>32–45% lower MAPE · Paper Accepted</p>
   </div>
 
-  <!-- CORE STACK -->
-  <div class="card span-4">
-    <h3>Core Stack</h3>
-    <div class="tag">GenAI</div>
-    <div class="tag">PyTorch</div>
-    <div class="tag">LLaMA-2</div>
-    <div class="tag">Time-Series ML</div>
-    <div class="tag">AWS</div>
-    <div class="tag">Docker</div>
-    <div class="tag">FastAPI</div>
-    <div class="tag">Kafka</div>
-
-    <h3 style="margin-top:20px">Certifications</h3>
-    <p class="muted">AWS Certified Cloud Practitioner</p>
+  <!-- CERTS -->
+  <div class="card c4">
+    <h3>Certifications</h3>
+    <p>AWS Certified Cloud Practitioner</p>
   </div>
 
-  <!-- EXPERIENCE EY -->
-  <div class="card span-6">
-    <h3>Experience · Ernst & Young (Morgan Stanley)</h3>
-    <small>Software Engineer · 2022–2024</small>
+  <!-- EY -->
+  <div class="card c6">
+    <h3>Experience · Ernst & Young</h3>
     <ul>
-      <li>Architected microservices (Java / Spring Boot) with 99.9% uptime</li>
-      <li>Python automation scripts detecting data discrepancies</li>
-      <li>AWS Lambda migration reducing costs by 25%</li>
-      <li>Kafka & event-driven architecture</li>
+      <li>Microservices (Spring Boot)</li>
+      <li>Python data discrepancy detection</li>
+      <li>AWS Lambda (-25% cost)</li>
+      <li>Kafka pipelines</li>
     </ul>
   </div>
 
-  <!-- EXPERIENCE TCS -->
-  <div class="card span-6">
-    <h3>Experience · Tata Consultancy Services</h3>
-    <small>System Engineer / Team Lead · 2019–2022</small>
+  <!-- TCS -->
+  <div class="card c6">
+    <h3>Experience · TCS</h3>
     <ul>
-      <li>Delivered 50+ enterprise full-stack applications</li>
-      <li>Led Agile team of 5 engineers</li>
-      <li>SQL tuning improving performance by 30%</li>
-      <li>TDD / BDD with 90%+ coverage</li>
+      <li>50+ enterprise apps</li>
+      <li>Agile team lead (5)</li>
+      <li>SQL tuning (+30%)</li>
     </ul>
   </div>
 
 </div>
 
-<footer>
-  © 2026 Naveena Pokala · AI/ML Engineer
-</footer>
-
 <script>
-const ctx=document.getElementById('chart');
-new Chart(ctx,{
+new Chart(document.getElementById('miniChart'),{
   type:'line',
   data:{
-    labels:['Baseline','LSTM','Hybrid LLM'],
+    labels:['B','LSTM','LLM'],
     datasets:[{
       data:[22,18,12],
-      borderColor:'#3bc9ff',
-      tension:.4,
-      fill:false
+      borderColor:'#2dd4ff',
+      tension:.4
     }]
   },
   options:{
     plugins:{legend:{display:false}},
-    scales:{y:{beginAtZero:true}}
+    scales:{x:{display:false},y:{display:false}}
   }
 });
 </script>
