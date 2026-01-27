@@ -26,7 +26,6 @@
             background-image: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
         }
 
-        /* --- THE EXACT GRID --- */
         .bento-container {
             display: grid;
             grid-template-columns: 240px 360px 240px;
@@ -53,7 +52,6 @@
             box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
         }
 
-        /* Grid Assignments */
         .chart-cell { grid-column: 1; grid-row: 1; display: flex; align-items: center; justify-content: center; }
         .header-cell { grid-column: 2 / 4; grid-row: 1; display: flex; flex-direction: column; justify-content: center; }
         .gpa-cell { grid-column: 1; grid-row: 2; text-align: center; }
@@ -61,17 +59,17 @@
         .stack-cell { grid-column: 3; grid-row: 2 / 4; }
         .exp-ey-cell { grid-column: 1; grid-row: 3; }
         .about-tcs-cell { grid-column: 2; grid-row: 3; }
-        .terminal-cell { 
-            grid-column: 3; grid-row: 3; 
-            background: #000; 
-            height: 100px; 
-            margin-top: auto; 
+        .terminal-cell {
+            grid-column: 3; grid-row: 3;
+            background: #000;
+            height: 100px;
+            margin-top: auto;
             border-radius: 12px;
             padding: 15px;
         }
 
-        /* Content Styling */
         h1 { font-family: 'Space Grotesk'; font-size: 2rem; margin: 0; }
+
         .gpa-circle {
             width: 120px; height: 120px; border: 4px solid var(--accent);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -93,7 +91,6 @@
         ul { padding-left: 15px; font-size: 0.75rem; color: var(--text-dim); }
         li { margin-bottom: 5px; }
 
-        /* Modal Layout */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(1, 4, 9, 0.98); display: none; z-index: 1000;
@@ -105,77 +102,94 @@
         }
     </style>
 </head>
+
 <body>
 
 <div class="bento-container">
-    
+
     <div class="card chart-cell">
-        <svg width="100" height="60"><path d="M5 50 L20 35 L40 40 L60 20 L80 25 L95 5" fill="none" stroke="#38bdf8" stroke-width="2"/></svg>
+        <svg width="100" height="60">
+            <path d="M5 50 L20 35 L40 40 L60 20 L80 25 L95 5" fill="none" stroke="#38bdf8" stroke-width="2"/>
+        </svg>
     </div>
 
     <div class="card header-cell">
         <h1>Naveena Pokala</h1>
-        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 5px;">AI / ML Engineer • Software Architect [cite: 9, 38, 47]</p>
+        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 5px;">
+            AI / ML Engineer • Software Engineer
+        </p>
         <div style="margin-top: 15px;">
             <a href="https://github.com/NAVEENAPOKALA" class="nav-link">GitHub</a>
             <a href="https://linkedin.com/in/naveenapokala" class="nav-link">LinkedIn</a>
-            <a href="#" class="nav-link">Projects</a>
-            <a href="#" class="nav-link">Resume</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="Resume_NaveenaPokala.pdf" class="nav-link">Resume</a>
         </div>
     </div>
 
     <div class="card gpa-cell" onclick="show('edu')">
         <div class="gpa-circle">3.96</div>
-        <p style="font-size: 0.75rem; margin: 0;">MS in Computer Science [cite: 9]</p>
-        <p style="color: var(--text-dim); font-size: 0.65rem;">Expected May 2026 [cite: 15]</p>
+        <p style="font-size: 0.75rem; margin: 0;">MS in Computer Science</p>
+        <p style="color: var(--text-dim); font-size: 0.65rem;">UNC Greensboro • Expected May 2026</p>
     </div>
 
     <div class="card research-cell" onclick="show('res')">
         <span style="font-size: 0.65rem; color: var(--accent); font-weight: 600;">Featured Research</span>
-        <h3 style="margin: 10px 0; font-size: 1.1rem;">LLM-Based Stock Forecasting</h3>
-        <p style="font-size: 0.75rem; color: var(--text-dim);">32-45% lower error. Paper accepted ACDSA 2026[cite: 11, 29].</p>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">LLM-Based Stock Price Prediction</h3>
+        <p style="font-size: 0.75rem; color: var(--text-dim);">
+            32–45% lower MAPE • Paper Accepted (ACDSA 2026)
+        </p>
         <div class="btn-learn" style="right: 20px;">View Project Details →</div>
     </div>
 
     <div class="card stack-cell" onclick="show('stack')">
-        <h4 style="margin-top: 0; font-size: 0.9rem;">Core Stack [cite: 13-18]</h4>
+        <h4 style="margin-top: 0; font-size: 0.9rem;">Core Stack</h4>
         <div style="margin-bottom: 20px;">
-            <span class="tag">GenAI</span> <span class="tag">PyTorch</span> <span class="tag">AWS</span>
-            <span class="tag">Docker</span> <span class="tag">RAG</span> <span class="tag">Python</span>
-            <span class="tag">Transformers</span> <span class="tag">Kafka</span>
+            <span class="tag">GenAI</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">LLaMA-2</span>
+            <span class="tag">Python</span>
+            <span class="tag">RAG</span>
+            <span class="tag">AWS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kafka</span>
         </div>
-        <h4 style="font-size: 0.9rem;">Certifications [cite: 56, 57]</h4>
+        <h4 style="font-size: 0.9rem;">Certifications</h4>
         <p style="font-size: 0.7rem; color: var(--text-dim);">
-            • AWS Cloud Practitioner<br>
-            • Star of the Month (TCS)
+            • AWS Certified Cloud Practitioner<br>
+            • Star of the Month — TCS
         </p>
     </div>
 
     <div class="card exp-ey-cell">
         <h4 style="margin: 0; font-size: 0.9rem;">Experience</h4>
-        <p style="font-size: 0.75rem; margin: 5px 0;">Ernst & Young • 2022-2024 [cite: 38, 39]</p>
+        <p style="font-size: 0.75rem; margin: 5px 0;">Ernst & Young (Morgan Stanley) • 2022–2024</p>
         <ul>
-            <li>Architected Microservices [cite: 40]</li>
-            <li>AWS Lambda (-25% cost) [cite: 45]</li>
-            <li>Kafka Event-Driven [cite: 43]</li>
+            <li>Architected high-availability microservices (Spring Boot)</li>
+            <li>Built Python automation scripts to detect data discrepancies</li>
+            <li>Migrated batch jobs to AWS Lambda (25% cost reduction)</li>
+            <li>Implemented Kafka-based event-driven pipelines</li>
         </ul>
         <div class="btn-learn" onclick="show('ey')">Learn More</div>
     </div>
 
     <div class="card about-tcs-cell">
         <h4 style="margin: 0; font-size: 0.9rem;">About Me</h4>
-        <p style="font-size: 0.75rem; margin: 5px 0;">TCS & BaNCS • 2019-2022 [cite: 47, 48]</p>
+        <p style="font-size: 0.75rem; margin: 5px 0;">Tata Consultancy Services • 2019–2022</p>
         <ul>
-            <li>Led 5-person team [cite: 52]</li>
-            <li>SQL Tuning (-30% time) [cite: 53]</li>
-            <li>50+ Full-stack Apps [cite: 49]</li>
+            <li>Led Agile team of 5 engineers</li>
+            <li>Optimized SQL queries (30% faster execution)</li>
+            <li>Delivered 50+ full-stack enterprise applications</li>
         </ul>
         <div class="btn-learn" onclick="show('tcs')">Learn More</div>
     </div>
 
     <div class="card terminal-cell">
-        <p style="font-family: monospace; font-size: 0.65rem; color: #34d399; margin: 0;">user@nav-portfolio:~$ help</p>
-        <p style="font-family: monospace; font-size: 0.65rem; color: var(--text-dim); margin-top: 4px;">Enter 'help' for commands.</p>
+        <p style="font-family: monospace; font-size: 0.65rem; color: #34d399; margin: 0;">
+            user@naveena-portfolio:~$ help
+        </p>
+        <p style="font-family: monospace; font-size: 0.65rem; color: var(--text-dim); margin-top: 4px;">
+            Type 'projects' or 'experience'
+        </p>
     </div>
 
 </div>
@@ -185,14 +199,44 @@
 </div>
 
 <script>
-    const content = {
-        edu: `<h3>Education</h3><p><strong>MS in Computer Science</strong><br>UNC Greensboro (Expected 2026) [cite: 9, 15]</p><p>GPA: 3.96 [cite: 9]</p>`,
-        res: `<h3>Research Detail [cite: 11, 24-30]</h3><ul><li>Integrated LLAMA-2 with CNN architectures for 10k+ documents</li><li>32-45% MAPE reduction vs baseline models</li><li>Vector embeddings and contextual chunking</li></ul>`,
-        stack: `<h3>Technical Arsenal [cite: 13-18]</h3><p><strong>Languages:</strong> Python, Java, JavaScript, TypeScript, SQL</p><p><strong>Tools:</strong> LangChain, FastAPI, Docker, Kubernetes, Terraform</p>`,
-        ey: `<h3>Ernst & Young (Morgan Stanley) [cite: 38-46]</h3><ul><li>Microservices serving 10k+ transactions daily with 99.9% uptime</li><li>Containerized deployments on AWS ECS/Fargate</li><li>L1/L2 production support and incident resolution</li></ul>`,
-        tcs: `<h3>TCS BaNCS Experience [cite: 47-54]</h3><ul><li>Delivered 50+ full-stack apps using Spring Boot and Angular</li><li>Achieved 90%+ code coverage via TDD/BDD</li><li>Star of the Month award (Sep 2021)</li></ul>`
-    };
-    function show(k) { document.getElementById('m-body').innerHTML = content[k]; document.getElementById('modal-ui').style.display = 'flex'; }
+const content = {
+    edu: `<h3>Education</h3>
+          <p><strong>Master of Science in Computer Science</strong><br>
+          University of North Carolina at Greensboro</p>
+          <p>GPA: 3.96 • Expected May 2026</p>`,
+
+    res: `<h3>AI/ML Research Assistant — UNC Greensboro</h3>
+          <ul>
+            <li>Built LLM-based pipelines integrating LLaMA-2 embeddings with CNNs</li>
+            <li>Processed 10,000+ financial documents and time-series signals</li>
+            <li>Achieved 32–45% lower MAPE vs baseline models</li>
+            <li>Paper accepted at ACDSA 2026 (Stock Price Prediction)</li>
+          </ul>`,
+
+    stack: `<h3>Technical Stack</h3>
+            <p><strong>Languages:</strong> Python, Java, SQL, JavaScript</p>
+            <p><strong>Frameworks & Tools:</strong> PyTorch, LangChain, FastAPI, Docker, AWS, Kafka</p>`,
+
+    ey: `<h3>Ernst & Young — Morgan Stanley</h3>
+         <ul>
+           <li>Microservices handling 10k+ daily transactions (99.9% uptime)</li>
+           <li>Python scripts for data validation and discrepancy detection</li>
+           <li>AWS ECS/Fargate deployments and Lambda migrations</li>
+           <li>L1/L2 production support and incident management</li>
+         </ul>`,
+
+    tcs: `<h3>Tata Consultancy Services (BaNCS)</h3>
+          <ul>
+            <li>Delivered 50+ enterprise-grade full-stack applications</li>
+            <li>Led Agile teams and sprint ceremonies</li>
+            <li>Achieved 90%+ code coverage via TDD/BDD</li>
+          </ul>`
+};
+
+function show(k) {
+    document.getElementById('m-body').innerHTML = content[k];
+    document.getElementById('modal-ui').style.display = 'flex';
+}
 </script>
 
 </body>
