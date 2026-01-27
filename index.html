@@ -1,241 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naveena Pokala | AI/ML Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #030712;
-            --card-bg: rgba(17, 24, 39, 0.4);
-            --accent: #38bdf8;
-            --border: rgba(56, 189, 248, 0.3);
-            --text-dim: #94a3b8;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naveena Pokala | AI/ML Portfolio</title>
 
-        body {
-            background-color: var(--bg);
-            color: #f8fafc;
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-        .bento-container {
-            display: grid;
-            grid-template-columns: 240px 360px 240px;
-            grid-template-rows: 140px 300px 300px;
-            gap: 16px;
-            width: 872px;
-            padding: 40px;
-        }
+<style>
+:root {
+  --bg:#030712;
+  --card-bg:rgba(17,24,39,0.4);
+  --accent:#38bdf8;
+  --border:rgba(56,189,248,0.3);
+  --text-dim:#94a3b8;
+}
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            backdrop-filter: blur(20px);
-            position: relative;
-            box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
+body{
+  background:radial-gradient(circle at center,#0f172a,#030712);
+  color:#f8fafc;
+  font-family:'Inter',sans-serif;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
 
-        .card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
-        }
+/* GRID */
+.bento-container{
+  display:grid;
+  grid-template-columns:240px 360px 240px;
+  grid-template-rows:140px 300px 300px;
+  gap:16px;
+  width:872px;
+  padding:40px;
+}
 
-        .chart-cell { grid-column: 1; grid-row: 1; display: flex; align-items: center; justify-content: center; }
-        .header-cell { grid-column: 2 / 4; grid-row: 1; display: flex; flex-direction: column; justify-content: center; }
-        .gpa-cell { grid-column: 1; grid-row: 2; text-align: center; }
-        .research-cell { grid-column: 2; grid-row: 2; }
-        .stack-cell { grid-column: 3; grid-row: 2 / 4; }
-        .exp-ey-cell { grid-column: 1; grid-row: 3; }
-        .about-tcs-cell { grid-column: 2; grid-row: 3; }
-        .terminal-cell {
-            grid-column: 3; grid-row: 3;
-            background: #000;
-            height: 100px;
-            margin-top: auto;
-            border-radius: 12px;
-            padding: 15px;
-        }
+.card{
+  background:var(--card-bg);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+  backdrop-filter:blur(20px);
+  box-shadow:inset 0 0 15px rgba(56,189,248,.05);
+  position:relative;
+  transition:.3s;
+}
 
-        h1 { font-family: 'Space Grotesk'; font-size: 2rem; margin: 0; }
+.card:hover{
+  border-color:var(--accent);
+  box-shadow:0 0 25px rgba(56,189,248,.15);
+}
 
-        .gpa-circle {
-            width: 120px; height: 120px; border: 4px solid var(--accent);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 2.2rem; font-weight: 700; margin: 20px auto;
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
-        }
+/* GRID PLACEMENT */
+.header-cell{grid-column:1/4;grid-row:1}
+.about-cell{grid-column:2;grid-row:1}
 
-        .tag { border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: var(--accent); margin: 2px; display: inline-block; }
+.achievements-cell{grid-column:1;grid-row:2}
+.gpa-cell{grid-column:2;grid-row:2}
+.stack-cell{grid-column:3;grid-row:2/4}
 
-        .btn-learn {
-            background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border);
-            color: var(--accent); font-size: 0.7rem; padding: 6px 12px;
-            border-radius: 6px; position: absolute; bottom: 20px;
-        }
+.exp-cell{grid-column:1;grid-row:3}
+.projects-cell{grid-column:2;grid-row:3}
 
-        .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; margin-right: 15px; }
-        .nav-link:hover { color: var(--accent); }
+/* TYPOGRAPHY */
+h1{font-family:'Space Grotesk';margin:0;font-size:2rem}
+h4{margin:0 0 6px;font-size:.9rem}
+p{margin:4px 0;font-size:.75rem;color:var(--text-dim)}
+ul{padding-left:16px;font-size:.75rem;color:var(--text-dim)}
+li{margin-bottom:6px}
 
-        ul { padding-left: 15px; font-size: 0.75rem; color: var(--text-dim); }
-        li { margin-bottom: 5px; }
+.tag{
+  border:1px solid var(--border);
+  padding:4px 8px;
+  border-radius:4px;
+  font-size:.65rem;
+  color:var(--accent);
+  display:inline-block;
+  margin:2px;
+}
 
-        .modal {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(1, 4, 9, 0.98); display: none; z-index: 1000;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-        .modal-content {
-            background: #0f172a; border: 1px solid var(--accent); width: 100%; max-width: 650px;
-            padding: 30px; border-radius: 20px; box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
-        }
-    </style>
+.gpa-circle{
+  width:120px;height:120px;
+  border:4px solid var(--accent);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.2rem;
+  font-weight:700;
+  margin:20px auto;
+  box-shadow:0 0 20px rgba(56,189,248,.2);
+}
+
+.btn-learn{
+  position:absolute;
+  bottom:20px;
+  background:rgba(56,189,248,.1);
+  border:1px solid var(--border);
+  color:var(--accent);
+  font-size:.7rem;
+  padding:6px 12px;
+  border-radius:6px;
+}
+
+.nav-link{
+  color:var(--text-dim);
+  text-decoration:none;
+  font-size:.8rem;
+  margin-right:15px;
+}
+.nav-link:hover{color:var(--accent)}
+
+/* MODAL */
+.modal{
+  position:fixed;inset:0;
+  background:rgba(1,4,9,.98);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+.modal-content{
+  background:#0f172a;
+  border:1px solid var(--accent);
+  max-width:650px;
+  padding:30px;
+  border-radius:20px;
+}
+</style>
 </head>
 
 <body>
 
 <div class="bento-container">
 
-    <div class="card chart-cell">
-        <svg width="100" height="60">
-            <path d="M5 50 L20 35 L40 40 L60 20 L80 25 L95 5" fill="none" stroke="#38bdf8" stroke-width="2"/>
-        </svg>
-    </div>
+<!-- HEADER -->
+<div class="card header-cell">
+  <h1>Naveena Pokala</h1>
+  <p>AI / ML Engineer • Software Engineer</p>
+  <div style="margin-top:12px">
+    <a href="https://github.com/NAVEENAPOKALA" class="nav-link">GitHub</a>
+    <a href="https://linkedin.com/in/naveenapokala" class="nav-link">LinkedIn</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+    <a href="Resume_NaveenaPokala.pdf" class="nav-link">Resume</a>
+  </div>
+</div>
 
-    <div class="card header-cell">
-        <h1>Naveena Pokala</h1>
-        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 5px;">
-            AI / ML Engineer • Software Engineer
-        </p>
-        <div style="margin-top: 15px;">
-            <a href="https://github.com/NAVEENAPOKALA" class="nav-link">GitHub</a>
-            <a href="https://linkedin.com/in/naveenapokala" class="nav-link">LinkedIn</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="Resume_NaveenaPokala.pdf" class="nav-link">Resume</a>
-        </div>
-    </div>
+<!-- ABOUT -->
+<div class="card about-cell">
+  <h4>About Me</h4>
+  <p>
+    AI/ML Research Assistant at UNC Greensboro with 6+ years of software
+    engineering experience building scalable cloud-native systems and
+    production ML pipelines.
+  </p>
+</div>
 
-    <div class="card gpa-cell" onclick="show('edu')">
-        <div class="gpa-circle">3.96</div>
-        <p style="font-size: 0.75rem; margin: 0;">MS in Computer Science</p>
-        <p style="color: var(--text-dim); font-size: 0.65rem;">UNC Greensboro • Expected May 2026</p>
-    </div>
+<!-- KEY ACHIEVEMENTS -->
+<div class="card achievements-cell">
+  <h4>Key Achievements</h4>
+  <ul>
+    <li>📄 Paper accepted at ACDSA 2026</li>
+    <li>⬇ 32–45% MAPE reduction using LLMs</li>
+    <li>☁️ 25% cost reduction via AWS Lambda</li>
+    <li>⭐ Star of the Month — TCS</li>
+  </ul>
+</div>
 
-    <div class="card research-cell" onclick="show('res')">
-        <span style="font-size: 0.65rem; color: var(--accent); font-weight: 600;">Featured Research</span>
-        <h3 style="margin: 10px 0; font-size: 1.1rem;">LLM-Based Stock Price Prediction</h3>
-        <p style="font-size: 0.75rem; color: var(--text-dim);">
-            32–45% lower MAPE • Paper Accepted (ACDSA 2026)
-        </p>
-        <div class="btn-learn" style="right: 20px;">View Project Details →</div>
-    </div>
+<!-- GPA -->
+<div class="card gpa-cell" onclick="show('edu')">
+  <div class="gpa-circle">3.96</div>
+  <p>MS in Computer Science</p>
+  <p>UNC Greensboro • May 2026</p>
+</div>
 
-    <div class="card stack-cell" onclick="show('stack')">
-        <h4 style="margin-top: 0; font-size: 0.9rem;">Core Stack</h4>
-        <div style="margin-bottom: 20px;">
-            <span class="tag">GenAI</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">LLaMA-2</span>
-            <span class="tag">Python</span>
-            <span class="tag">RAG</span>
-            <span class="tag">AWS</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kafka</span>
-        </div>
-        <h4 style="font-size: 0.9rem;">Certifications</h4>
-        <p style="font-size: 0.7rem; color: var(--text-dim);">
-            • AWS Certified Cloud Practitioner<br>
-            • Star of the Month — TCS
-        </p>
-    </div>
+<!-- CORE STACK (ROW 2 + 3) -->
+<div class="card stack-cell" onclick="show('stack')">
+  <h4>Core Stack</h4>
+  <span class="tag">GenAI</span>
+  <span class="tag">PyTorch</span>
+  <span class="tag">LLaMA-2</span>
+  <span class="tag">Python</span>
+  <span class="tag">AWS</span>
+  <span class="tag">Docker</span>
+  <span class="tag">Kafka</span>
+  <span class="tag">FastAPI</span>
 
-    <div class="card exp-ey-cell">
-        <h4 style="margin: 0; font-size: 0.9rem;">Experience</h4>
-        <p style="font-size: 0.75rem; margin: 5px 0;">Ernst & Young (Morgan Stanley) • 2022–2024</p>
-        <ul>
-            <li>Architected high-availability microservices (Spring Boot)</li>
-            <li>Built Python automation scripts to detect data discrepancies</li>
-            <li>Migrated batch jobs to AWS Lambda (25% cost reduction)</li>
-            <li>Implemented Kafka-based event-driven pipelines</li>
-        </ul>
-        <div class="btn-learn" onclick="show('ey')">Learn More</div>
-    </div>
+  <h4 style="margin-top:16px">Certifications</h4>
+  <p>• AWS Cloud Practitioner<br>• Star of the Month (TCS)</p>
+</div>
 
-    <div class="card about-tcs-cell">
-        <h4 style="margin: 0; font-size: 0.9rem;">About Me</h4>
-        <p style="font-size: 0.75rem; margin: 5px 0;">Tata Consultancy Services • 2019–2022</p>
-        <ul>
-            <li>Led Agile team of 5 engineers</li>
-            <li>Optimized SQL queries (30% faster execution)</li>
-            <li>Delivered 50+ full-stack enterprise applications</li>
-        </ul>
-        <div class="btn-learn" onclick="show('tcs')">Learn More</div>
-    </div>
+<!-- EXPERIENCE -->
+<div class="card exp-cell" onclick="show('ey')">
+  <h4>Experience</h4>
+  <p>Ernst & Young • Morgan Stanley</p>
+  <ul>
+    <li>Spring Boot microservices (99.9% uptime)</li>
+    <li>Python automation for data discrepancies</li>
+    <li>AWS Lambda & Kafka pipelines</li>
+  </ul>
+  <div class="btn-learn">Learn More</div>
+</div>
 
-    <div class="card terminal-cell">
-        <p style="font-family: monospace; font-size: 0.65rem; color: #34d399; margin: 0;">
-            user@naveena-portfolio:~$ help
-        </p>
-        <p style="font-family: monospace; font-size: 0.65rem; color: var(--text-dim); margin-top: 4px;">
-            Type 'projects' or 'experience'
-        </p>
-    </div>
+<!-- PROJECTS -->
+<div class="card projects-cell" onclick="show('res')">
+  <h4>Projects</h4>
+  <p><strong>LLM-Based Stock Price Prediction</strong></p>
+  <p>Hybrid LLM + time-series modeling</p>
+  <p>Paper Accepted • ACDSA 2026</p>
+  <div class="btn-learn">View Details</div>
+</div>
 
 </div>
 
+<!-- MODAL -->
 <div id="modal-ui" class="modal" onclick="this.style.display='none'">
-    <div class="modal-content" onclick="event.stopPropagation()" id="m-body"></div>
+  <div class="modal-content" onclick="event.stopPropagation()" id="m-body"></div>
 </div>
 
 <script>
-const content = {
-    edu: `<h3>Education</h3>
-          <p><strong>Master of Science in Computer Science</strong><br>
-          University of North Carolina at Greensboro</p>
-          <p>GPA: 3.96 • Expected May 2026</p>`,
-
-    res: `<h3>AI/ML Research Assistant — UNC Greensboro</h3>
-          <ul>
-            <li>Built LLM-based pipelines integrating LLaMA-2 embeddings with CNNs</li>
-            <li>Processed 10,000+ financial documents and time-series signals</li>
-            <li>Achieved 32–45% lower MAPE vs baseline models</li>
-            <li>Paper accepted at ACDSA 2026 (Stock Price Prediction)</li>
-          </ul>`,
-
-    stack: `<h3>Technical Stack</h3>
-            <p><strong>Languages:</strong> Python, Java, SQL, JavaScript</p>
-            <p><strong>Frameworks & Tools:</strong> PyTorch, LangChain, FastAPI, Docker, AWS, Kafka</p>`,
-
-    ey: `<h3>Ernst & Young — Morgan Stanley</h3>
-         <ul>
-           <li>Microservices handling 10k+ daily transactions (99.9% uptime)</li>
-           <li>Python scripts for data validation and discrepancy detection</li>
-           <li>AWS ECS/Fargate deployments and Lambda migrations</li>
-           <li>L1/L2 production support and incident management</li>
-         </ul>`,
-
-    tcs: `<h3>Tata Consultancy Services (BaNCS)</h3>
-          <ul>
-            <li>Delivered 50+ enterprise-grade full-stack applications</li>
-            <li>Led Agile teams and sprint ceremonies</li>
-            <li>Achieved 90%+ code coverage via TDD/BDD</li>
-          </ul>`
+const content={
+  edu:`<h3>Education</h3><p>MS in Computer Science<br>UNC Greensboro<br>GPA:3.96</p>`,
+  stack:`<h3>Core Stack</h3><p>Python, PyTorch, LLaMA-2, LangChain, FastAPI, AWS, Docker, Kafka</p>`,
+  ey:`<h3>Ernst & Young — Morgan Stanley</h3><ul><li>10k+ daily transactions</li><li>Python automation</li><li>AWS ECS/Lambda</li></ul>`,
+  res:`<h3>LLM-Based Stock Price Prediction</h3><ul><li>10k+ documents</li><li>32–45% MAPE reduction</li><li>Paper accepted ACDSA 2026</li></ul>`
 };
-
-function show(k) {
-    document.getElementById('m-body').innerHTML = content[k];
-    document.getElementById('modal-ui').style.display = 'flex';
+function show(k){
+  document.getElementById('m-body').innerHTML=content[k];
+  document.getElementById('modal-ui').style.display='flex';
 }
 </script>
 
