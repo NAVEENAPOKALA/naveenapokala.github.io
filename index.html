@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #010409;
-            --card-bg: rgba(13, 17, 23, 0.7);
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.4);
             --accent: #38bdf8;
             --border: rgba(56, 189, 248, 0.3);
             --text-dim: #94a3b8;
@@ -16,89 +16,92 @@
 
         body {
             background-color: var(--bg);
-            color: #f0f6fc;
+            color: #f8fafc;
             font-family: 'Inter', sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-image: radial-gradient(circle at center, #111827 0%, #010409 100%);
+            background-image: radial-gradient(circle at center, #0f172a 0%, #030712 100%);
         }
 
-        /* --- Grid Structure --- */
+        /* --- THE EXACT GRID --- */
         .bento-container {
             display: grid;
-            grid-template-columns: 240px 380px 240px;
-            grid-template-rows: 180px 320px 300px;
-            gap: 20px;
-            width: 920px;
+            grid-template-columns: 240px 360px 240px;
+            grid-template-rows: 140px 300px 300px;
+            gap: 16px;
+            width: 872px;
             padding: 40px;
-            position: relative;
         }
 
-        /* Card Base Styles */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 20px;
-            backdrop-filter: blur(15px);
+            padding: 24px;
+            backdrop-filter: blur(20px);
             position: relative;
+            box-shadow: inset 0 0 15px rgba(56, 189, 248, 0.05);
             transition: all 0.3s ease;
-            box-shadow: inset 0 0 20px rgba(56, 189, 248, 0.05);
             cursor: pointer;
         }
 
         .card:hover {
             border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
-            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
         }
 
-        /* --- Section Specific Layouts --- */
-        .header-card { grid-column: 2 / 4; grid-row: 1; display: flex; flex-direction: column; justify-content: center; }
-        .chart-card { grid-column: 1; grid-row: 1; display: flex; align-items: center; justify-content: center; }
-        .gpa-card { grid-column: 1; grid-row: 2; text-align: center; }
-        .research-card { grid-column: 2; grid-row: 2; }
-        .stack-card { grid-column: 3; grid-row: 2 / 4; }
-        .exp-ey-card { grid-column: 1; grid-row: 3; }
-        .exp-tcs-card { grid-column: 2; grid-row: 3; }
-        .terminal-card { grid-column: 3; grid-row: 3; display: flex; flex-direction: column; background: #000; height: 120px; margin-top: auto; }
+        /* Grid Assignments */
+        .chart-cell { grid-column: 1; grid-row: 1; display: flex; align-items: center; justify-content: center; }
+        .header-cell { grid-column: 2 / 4; grid-row: 1; display: flex; flex-direction: column; justify-content: center; }
+        .gpa-cell { grid-column: 1; grid-row: 2; text-align: center; }
+        .research-cell { grid-column: 2; grid-row: 2; }
+        .stack-cell { grid-column: 3; grid-row: 2 / 4; }
+        .exp-ey-cell { grid-column: 1; grid-row: 3; }
+        .about-tcs-cell { grid-column: 2; grid-row: 3; }
+        .terminal-cell { 
+            grid-column: 3; grid-row: 3; 
+            background: #000; 
+            height: 100px; 
+            margin-top: auto; 
+            border-radius: 12px;
+            padding: 15px;
+        }
 
-        /* --- Visual Elements --- */
-        h1 { font-family: 'Space Grotesk'; font-size: 2.2rem; margin: 0; }
-        .subtitle { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 15px; }
-        
-        .nav-icons { display: flex; gap: 15px; font-size: 0.8rem; color: var(--text-dim); }
-        .nav-icons a { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 5px; }
-        .nav-icons a:hover { color: var(--accent); }
-
+        /* Content Styling */
+        h1 { font-family: 'Space Grotesk'; font-size: 2rem; margin: 0; }
         .gpa-circle {
-            width: 130px; height: 130px; border: 4px solid var(--accent);
+            width: 120px; height: 120px; border: 4px solid var(--accent);
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 2.5rem; font-weight: 700; margin: 20px auto;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+            font-size: 2.2rem; font-weight: 700; margin: 20px auto;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
         }
 
-        .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-        .tag { border: 1px solid var(--border); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; color: var(--accent); }
+        .tag { border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px; font-size: 0.65rem; color: var(--accent); margin: 2px; display: inline-block; }
 
-        .learn-more { font-size: 0.75rem; color: var(--accent); position: absolute; bottom: 15px; right: 20px; text-decoration: none; }
+        .btn-learn {
+            background: rgba(56, 189, 248, 0.1); border: 1px solid var(--border);
+            color: var(--accent); font-size: 0.7rem; padding: 6px 12px;
+            border-radius: 6px; position: absolute; bottom: 20px;
+        }
 
-        /* Modal Styles */
+        .nav-link { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; margin-right: 15px; }
+        .nav-link:hover { color: var(--accent); }
+
+        ul { padding-left: 15px; font-size: 0.75rem; color: var(--text-dim); }
+        li { margin-bottom: 5px; }
+
+        /* Modal Layout */
         .modal {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(1, 4, 9, 0.95); display: none; z-index: 100;
-            justify-content: center; align-items: center;
+            background: rgba(1, 4, 9, 0.98); display: none; z-index: 1000;
+            justify-content: center; align-items: center; padding: 20px;
         }
         .modal-content {
-            background: #0d1117; border: 1px solid var(--accent); width: 80%; max-width: 700px;
-            padding: 40px; border-radius: 20px; max-height: 80vh; overflow-y: auto;
-        }
-
-        @media (max-width: 900px) {
-            .bento-container { display: flex; flex-direction: column; width: 90%; }
+            background: #0f172a; border: 1px solid var(--accent); width: 100%; max-width: 650px;
+            padding: 30px; border-radius: 20px; box-shadow: 0 0 40px rgba(56, 189, 248, 0.1);
         }
     </style>
 </head>
@@ -106,105 +109,90 @@
 
 <div class="bento-container">
     
-    <div class="card chart-card">
-        <svg width="100" height="60" viewBox="0 0 100 60">
-            <path d="M5 50 L20 40 L40 45 L60 25 L80 30 L95 10" fill="none" stroke="#38bdf8" stroke-width="2"/>
-            <circle cx="95" cy="10" r="3" fill="#38bdf8" />
-        </svg>
+    <div class="card chart-cell">
+        <svg width="100" height="60"><path d="M5 50 L20 35 L40 40 L60 20 L80 25 L95 5" fill="none" stroke="#38bdf8" stroke-width="2"/></svg>
     </div>
 
-    <div class="card header-card">
+    <div class="card header-cell">
         <h1>Naveena Pokala</h1>
-        <div class="subtitle">AI / ML Engineer • Software Architect</div>
-        <div class="nav-icons">
-            <a href="https://github.com/NAVEENAPOKALA">GitHub</a>
-            <a href="https://linkedin.com/in/naveenapokala">LinkedIn</a>
-            <a href="#projects">Projects</a>
-            <a href="#">Resume</a>
+        <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 5px;">AI / ML Engineer • Software Architect [cite: 9, 38, 47]</p>
+        <div style="margin-top: 15px;">
+            <a href="https://github.com/NAVEENAPOKALA" class="nav-link">GitHub</a>
+            <a href="https://linkedin.com/in/naveenapokala" class="nav-link">LinkedIn</a>
+            <a href="#" class="nav-link">Projects</a>
+            <a href="#" class="nav-link">Resume</a>
         </div>
     </div>
 
-    <div class="card gpa-card" onclick="openModal('edu')">
+    <div class="card gpa-cell" onclick="show('edu')">
         <div class="gpa-circle">3.96</div>
-        <p style="font-size: 0.8rem; margin: 0;">MS in Computer Science</p>
-        <p style="color: var(--text-dim); font-size: 0.7rem;">Expected May 2026 [cite: 9, 15]</p>
+        <p style="font-size: 0.75rem; margin: 0;">MS in Computer Science [cite: 9]</p>
+        <p style="color: var(--text-dim); font-size: 0.65rem;">Expected May 2026 [cite: 15]</p>
     </div>
 
-    <div class="card research-card" onclick="openModal('research')">
-        <span style="font-size: 0.7rem; color: var(--accent); font-weight: 600;">Featured Research</span>
-        <h3 style="margin: 10px 0;">LLM-Based Stock Forecasting</h3>
-        <p style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 25px;">
-            32-45% lower error. Paper accepted at ACDSA 2026[cite: 11].
-        </p>
-        <div class="learn-more">View Project Details →</div>
+    <div class="card research-cell" onclick="show('res')">
+        <span style="font-size: 0.65rem; color: var(--accent); font-weight: 600;">Featured Research</span>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">LLM-Based Stock Forecasting</h3>
+        <p style="font-size: 0.75rem; color: var(--text-dim);">32-45% lower error. Paper accepted ACDSA 2026[cite: 11, 29].</p>
+        <div class="btn-learn" style="right: 20px;">View Project Details →</div>
     </div>
 
-    <div class="card stack-card" onclick="openModal('skills')">
-        <h3 style="font-size: 1rem; margin-top: 0;">Core Stack</h3>
-        <div class="tag-list">
-            <span class="tag">GenAI</span> <span class="tag">PyTorch</span> <span class="tag">Python</span>
-            <span class="tag">Transformers</span> <span class="tag">AWS</span> <span class="tag">Docker</span>
-            <span class="tag">Kafka</span> <span class="tag">RAG</span> <span class="tag">Kubernetes</span>
+    <div class="card stack-cell" onclick="show('stack')">
+        <h4 style="margin-top: 0; font-size: 0.9rem;">Core Stack [cite: 13-18]</h4>
+        <div style="margin-bottom: 20px;">
+            <span class="tag">GenAI</span> <span class="tag">PyTorch</span> <span class="tag">AWS</span>
+            <span class="tag">Docker</span> <span class="tag">RAG</span> <span class="tag">Python</span>
+            <span class="tag">Transformers</span> <span class="tag">Kafka</span>
         </div>
-        <h3 style="font-size: 1rem; margin-top: 25px;">Certifications</h3>
-        <p style="font-size: 0.75rem; color: var(--text-dim);">
-            • AWS Cloud Practitioner [cite: 57]<br>
-            • Star of the Month (TCS) [cite: 56]
+        <h4 style="font-size: 0.9rem;">Certifications [cite: 56, 57]</h4>
+        <p style="font-size: 0.7rem; color: var(--text-dim);">
+            • AWS Cloud Practitioner<br>
+            • Star of the Month (TCS)
         </p>
     </div>
 
-    <div class="card exp-ey-card" onclick="openModal('ey')">
-        <h3 style="font-size: 1rem; margin: 0;">Experience</h3>
-        <p style="font-size: 0.8rem; margin: 5px 0;">Ernst & Young • 2022-2024</p>
-        <ul style="font-size: 0.7rem; color: var(--text-dim); padding-left: 15px;">
-            <li>Architected Microservices </li>
+    <div class="card exp-ey-cell">
+        <h4 style="margin: 0; font-size: 0.9rem;">Experience</h4>
+        <p style="font-size: 0.75rem; margin: 5px 0;">Ernst & Young • 2022-2024 [cite: 38, 39]</p>
+        <ul>
+            <li>Architected Microservices [cite: 40]</li>
             <li>AWS Lambda (-25% cost) [cite: 45]</li>
-            <li>Event-Driven Kafka [cite: 43]</li>
+            <li>Kafka Event-Driven [cite: 43]</li>
         </ul>
-        <div class="learn-more">Learn More</div>
+        <div class="btn-learn" onclick="show('ey')">Learn More</div>
     </div>
 
-    <div class="card exp-tcs-card" onclick="openModal('tcs')">
-        <h3 style="font-size: 1rem; margin: 0;">About Me</h3>
-        <p style="font-size: 0.8rem; margin: 5px 0;">TCS & BaNCS • 2019-2022</p>
-        <ul style="font-size: 0.7rem; color: var(--text-dim); padding-left: 15px;">
-            <li>Led 5-person Agile team [cite: 52]</li>
+    <div class="card about-tcs-cell">
+        <h4 style="margin: 0; font-size: 0.9rem;">About Me</h4>
+        <p style="font-size: 0.75rem; margin: 5px 0;">TCS & BaNCS • 2019-2022 [cite: 47, 48]</p>
+        <ul>
+            <li>Led 5-person team [cite: 52]</li>
+            <li>SQL Tuning (-30% time) [cite: 53]</li>
             <li>50+ Full-stack Apps [cite: 49]</li>
-            <li>SQL Tuning (-30% time) </li>
         </ul>
-        <div class="learn-more">Learn More</div>
+        <div class="btn-learn" onclick="show('tcs')">Learn More</div>
     </div>
 
-    <div class="card terminal-card" onclick="alert('Contact: n_pokala@uncg.edu')">
-        <p style="font-family: monospace; font-size: 0.7rem; margin: 0; color: #34d399;">user@naveena-portfolio:~$ help</p>
-        <p style="font-family: monospace; font-size: 0.7rem; color: var(--text-dim); margin-top: 5px;">Enter 'contact' for details.</p>
+    <div class="card terminal-cell">
+        <p style="font-family: monospace; font-size: 0.65rem; color: #34d399; margin: 0;">user@nav-portfolio:~$ help</p>
+        <p style="font-family: monospace; font-size: 0.65rem; color: var(--text-dim); margin-top: 4px;">Enter 'help' for commands.</p>
     </div>
 
 </div>
 
-<div id="modal-container" class="modal" onclick="closeModal()">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <div id="modal-body"></div>
-        <button onclick="closeModal()" style="margin-top: 20px; background: var(--accent); border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">Close</button>
-    </div>
+<div id="modal-ui" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()" id="m-body"></div>
 </div>
 
 <script>
-    const data = {
-        edu: `<h2>Education</h2><p><strong>University of North Carolina at Greensboro</strong></p><ul><li>Master of Science in Computer Science </li><li>GPA: 3.96 </li><li>Aug 2024 - May 2026 [cite: 15]</li></ul>`,
-        research: `<h2>Featured Research</h2><ul><li>Built end-to-end training pipelines for LLAMA-2 [cite: 24]</li><li>Multi-agent LLM workflow using LangChain [cite: 33]</li><li>Reduced error rates by 32-45% </li><li>Inference latency <200ms [cite: 37]</li></ul>`,
-        skills: `<h2>Technical Arsenal</h2><p><strong>Languages:</strong> Python, Java, JavaScript, TypeScript, SQL [cite: 13]</p><p><strong>ML/AI:</strong> NLP, RAG, Prompt Engineering, Agentic AI [cite: 16]</p><p><strong>DevOps:</strong> Docker, Kubernetes, Terraform, Jenkins [cite: 17]</p>`,
-        ey: `<h2>Ernst & Young Experience</h2><ul><li>Architected high-availability microservices for 10k+ transactions </li><li>Improved UX efficiency by 40% with Angular [cite: 41]</li><li>Containerized applications using Docker on AWS ECS/Fargate [cite: 44]</li></ul>`,
-        tcs: `<h2>TCS Experience</h2><ul><li>Delivered 50+ full-stack web applications [cite: 49]</li><li>Achieved 90%+ code coverage using TDD/BDD [cite: 51]</li><li>Facilitated Agile sprint ceremonies as Team Lead [cite: 52]</li></ul>`
+    const content = {
+        edu: `<h3>Education</h3><p><strong>MS in Computer Science</strong><br>UNC Greensboro (Expected 2026) [cite: 9, 15]</p><p>GPA: 3.96 [cite: 9]</p>`,
+        res: `<h3>Research Detail [cite: 11, 24-30]</h3><ul><li>Integrated LLAMA-2 with CNN architectures for 10k+ documents</li><li>32-45% MAPE reduction vs baseline models</li><li>Vector embeddings and contextual chunking</li></ul>`,
+        stack: `<h3>Technical Arsenal [cite: 13-18]</h3><p><strong>Languages:</strong> Python, Java, JavaScript, TypeScript, SQL</p><p><strong>Tools:</strong> LangChain, FastAPI, Docker, Kubernetes, Terraform</p>`,
+        ey: `<h3>Ernst & Young (Morgan Stanley) [cite: 38-46]</h3><ul><li>Microservices serving 10k+ transactions daily with 99.9% uptime</li><li>Containerized deployments on AWS ECS/Fargate</li><li>L1/L2 production support and incident resolution</li></ul>`,
+        tcs: `<h3>TCS BaNCS Experience [cite: 47-54]</h3><ul><li>Delivered 50+ full-stack apps using Spring Boot and Angular</li><li>Achieved 90%+ code coverage via TDD/BDD</li><li>Star of the Month award (Sep 2021)</li></ul>`
     };
-
-    function openModal(key) {
-        document.getElementById('modal-body').innerHTML = data[key];
-        document.getElementById('modal-container').style.display = 'flex';
-    }
-    function closeModal() {
-        document.getElementById('modal-container').style.display = 'none';
-    }
+    function show(k) { document.getElementById('m-body').innerHTML = content[k]; document.getElementById('modal-ui').style.display = 'flex'; }
 </script>
 
 </body>
