@@ -1,292 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Naveena Pokala | ML / AI Engineer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naveena Pokala | AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --accent: #38bdf8;
+            --text-dim: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--bg);
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #030712 100%);
+        }
 
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        /* Interactive Cursor Glow */
+        #glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
 
-  <style>
-    :root {
-      --bg: #0b1220;
-      --panel: #111a2e;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #14b8a6;   /* teal */
-      --accent2: #f59e0b;  /* amber */
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
 
-    body.light {
-      --bg: #f8fafc;
-      --panel: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-    }
+        header { margin-bottom: 50px; }
+        h1 { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
+        .subtitle { color: var(--accent); font-weight: 500; font-size: 1.2rem; margin-top: 5px; }
 
-    * { box-sizing: border-box; }
+        /* Bento Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'IBM Plex Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      transition: background 0.3s ease, color 0.3s ease;
-    }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    /* ---------- NAV ---------- */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 8%;
-      background: var(--bg);
-      border-bottom: 1px solid rgba(148,163,184,0.15);
-    }
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+        }
 
-    nav a {
-      margin-right: 18px;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-    }
+        /* Specific Card Sizes */
+        .large { grid-column: span 2; }
+        .tall { grid-row: span 2; }
 
-    nav a:hover {
-      color: var(--accent);
-    }
+        .stat-circle {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-    .toggle {
-      cursor: pointer;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: var(--accent2);
-    }
+        .nav-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
 
-    /* ---------- SECTIONS ---------- */
-    section {
-      padding: 90px 8%;
-    }
+        .nav-links a:hover { color: var(--accent); }
 
-    h1 {
-      font-size: 64px;
-      margin-bottom: 10px;
-    }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
 
-    h2 {
-      font-size: 38px;
-      margin-bottom: 30px;
-    }
+        ul { padding-left: 18px; color: var(--text-dim); font-size: 0.9rem; }
+        li { margin-bottom: 8px; }
 
-    h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      max-width: 900px;
-      line-height: 1.7;
-      font-size: 17px;
-      color: var(--muted);
-    }
-
-    /* ---------- PANELS ---------- */
-    .panel {
-      background: var(--panel);
-      border: 1px solid rgba(148,163,184,0.15);
-      border-radius: 14px;
-      padding: 32px;
-      margin-top: 30px;
-    }
-
-    /* ---------- TAGS ---------- */
-    .tag {
-      display: inline-block;
-      padding: 6px 12px;
-      margin-right: 8px;
-      margin-bottom: 8px;
-      border-radius: 999px;
-      font-size: 13px;
-      background: rgba(20,184,166,0.15);
-      color: var(--accent);
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* ---------- ARCH DIAGRAM ---------- */
-    .arch {
-      margin-top: 20px;
-      padding: 20px;
-      border: 1px dashed rgba(148,163,184,0.3);
-      border-radius: 12px;
-      font-family: 'JetBrains Mono', monospace;
-      transition: background 0.3s ease;
-    }
-
-    .arch:hover {
-      background: rgba(245,158,11,0.08);
-    }
-
-    /* ---------- TIMELINE ---------- */
-    .timeline {
-      border-left: 3px solid var(--accent);
-      padding-left: 30px;
-    }
-
-    .event {
-      margin-bottom: 40px;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      padding: 50px 8%;
-      border-top: 1px solid rgba(148,163,184,0.15);
-      color: var(--muted);
-    }
-  </style>
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            .large, .tall { grid-column: span 1; grid-row: span 1; }
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#certs">Certifications</a>
-      <a href="projects.html">All Projects</a>
-      <a href="Resume_NaveenaPokala.pdf" target="_blank">Resume</a>
-      <a href="https://github.com/NAVEENAPOKALA" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/naveenapokala" target="_blank">LinkedIn</a>
+<div id="glow"></div>
+
+<div class="container">
+    <header>
+        <h1>Naveena Pokala</h1>
+        <div class="subtitle">AI / ML Engineer & Software Architect</div>
+        <div class="nav-links" style="margin-top: 20px;">
+            <a href="https://github.com/NAVEENAPOKALA">GitHub</a>
+            <a href="https://linkedin.com/in/naveenapokala">LinkedIn</a>
+            <a href="#projects">Research</a>
+            <a href="Resume_NaveenaPokala.pdf">Resume</a>
+        </div>
+    </header>
+
+    <div class="grid">
+        <div class="card large">
+            <span class="tag">About Me</span>
+            <p style="font-size: 1.1rem; line-height: 1.6;">
+                I bridge the gap between heavy-duty software engineering and cutting-edge GenAI. Currently optimizing long-horizon stock predictions at <strong>UNC Greensboro</strong>. I specialize in turning complex data into production-ready intelligence.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="stat-circle">3.96</div>
+            <strong>MS in Computer Science</strong>
+            <p style="color: var(--text-dim); font-size: 0.85rem;">UNC Greensboro<br>Expected May 2026</p>
+        </div>
+
+        <div class="card large" id="projects">
+            <span class="tag">Featured Research</span>
+            <h3 style="margin: 10px 0;">LLM-Based Stock Forecasting</h3>
+            <p style="font-size: 0.9rem; color: var(--text-dim);">
+                Integrating textual signals from annual reports with market time-series. 
+                Achieved <strong>32–45% lower error</strong> than traditional ARIMA models.
+            </p>
+            <div style="margin-top: 15px;">
+                <span class="tag">Python</span> <span class="tag">PyTorch</span> <span class="tag">Transformers</span>
+            </div>
+        </div>
+
+        <div class="card tall">
+            <span class="tag">Experience</span>
+            <h4>Ernst & Young</h4>
+            <p style="font-size: 0.8rem; color: var(--accent);">2022 - 2024</p>
+            <ul>
+                <li>Architected Java microservices for 10k+ daily transactions.</li>
+                <li>Migrated 100+ jobs to AWS Lambda (-25% cost).</li>
+                <li>Built event-driven systems via Kafka.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <span class="tag">Core Stack</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+                <span class="tag">GenAI</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Kafka</span>
+                <span class="tag">Python</span>
+                <span class="tag">SQL Tuning</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="tag">Leadership</span>
+            <h4>TCS Team Lead</h4>
+            <p style="font-size: 0.8rem; color: var(--text-dim);">Led 5 engineers in delivering 50+ full-stack apps.</p>
+        </div>
+
+        <div class="card large">
+            <span class="tag">Latest Publication</span>
+            <p style="margin: 5px 0;"><strong>ACDSA 2026:</strong> "Stock Price Prediction Based on Annual Reports Using Large Language Models"</p>
+        </div>
     </div>
-    <div class="toggle" onclick="toggleTheme()">Toggle Light/Dark</div>
-  </nav>
 
-  <!-- HERO -->
-  <section>
-    <h1>Naveena Pokala</h1>
-    <h2>ML / AI Engineer · Software Engineer</h2>
-    <p>
-      I work at the intersection of applied ML research and production-grade
-      software engineering — from LLM-based stock prediction to large-scale
-      cloud systems.
-    </p>
-  </section>
+    <footer style="margin-top: 80px; text-align: center; color: var(--text-dim); font-size: 0.8rem;">
+        © 2026 Naveena Pokala · Powered by Code & Curiosity
+    </footer>
+</div>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Flagship ML Research</h2>
-
-    <div class="panel">
-      <h3>Stock Price Prediction using LLMs (Paper Accepted)</h3>
-      <p>
-        AI/ML research project at UNC Greensboro integrating annual report text
-        with numerical time-series market data using LLM embeddings and hybrid
-        deep learning architectures.
-      </p>
-
-      <div class="tag">LLaMA-2</div>
-      <div class="tag">PyTorch</div>
-      <div class="tag">Time-Series</div>
-      <div class="tag">CNN</div>
-      <div class="tag">RAG</div>
-
-      <!-- CHART -->
-      <canvas id="mapeChart" height="90"></canvas>
-
-      <!-- ARCH -->
-      <div class="arch">
-        Hover Architecture ↓<br><br>
-        Annual Reports → Embeddings → CNN + LLM → Time-Series Fusion → Prediction
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <h2>Experience</h2>
-
-    <div class="timeline">
-      <div class="event">
-        <h3>Ernst & Young — Software Engineer (Morgan Stanley)</h3>
-        <p>
-          Built high-availability microservices (Java, Spring Boot), Python
-          automation scripts to detect data discrepancies, CI/CD pipelines,
-          Kafka-based event systems, and AWS serverless jobs.
-        </p>
-      </div>
-
-      <div class="event">
-        <h3>Tata Consultancy Services — System Engineer / Team Lead</h3>
-        <p>
-          Delivered 50+ full-stack applications, led Agile teams, optimized SQL
-          performance, and enforced testing best practices.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="panel">
-      <h3>University of North Carolina at Greensboro</h3>
-      <p>
-        <strong>Master of Science in Computer Science</strong><br>
-        GPA: 3.96 · Aug 2024 – May 2026
-      </p>
-    </div>
-  </section>
-
-  <!-- CERTS -->
-  <section id="certs">
-    <h2>Certifications & Achievements</h2>
-
-    <div class="panel">
-      <ul>
-        <li>📄 Paper Accepted — ACDSA 2026 (Stock Price Prediction using LLMs)</li>
-        <li>☁️ AWS Certified Cloud Practitioner (CLF-C01)</li>
-        <li>⭐ Star of the Month — Tata Consultancy Services</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 Naveena Pokala · ML / AI Engineer
-  </footer>
-
-  <!-- SCRIPTS -->
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light');
-    }
-
-    const ctx = document.getElementById('mapeChart');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['ARIMA', 'Baseline LSTM', 'LLM + CNN (Mine)'],
-        datasets: [{
-          label: 'MAPE ↓',
-          data: [22, 18, 12],
-          backgroundColor: ['#64748b', '#38bdf8', '#14b8a6']
-        }]
-      },
-      options: {
-        plugins: { legend: { display: false } },
-        scales: {
-          y: { beginAtZero: true }
-        }
-      }
+<script>
+    const glow = document.getElementById('glow');
+    window.addEventListener('mousemove', (e) => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
     });
-  </script>
+</script>
 
 </body>
 </html>
