@@ -44,7 +44,7 @@
 
     ul {
       margin-top: 12px;
-      max-width: 880px;
+      max-width: 900px;
       line-height: 1.7;
     }
 
@@ -66,9 +66,9 @@
       background: rgba(30, 41, 59, 0.65);
       border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 16px;
-      padding: 30px;
+      padding: 32px;
       margin-top: 40px;
-      max-width: 1000px;
+      max-width: 1050px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -79,17 +79,17 @@
 
     .badge {
       display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
+      background: rgba(56, 189, 248, 0.18);
       color: #38bdf8;
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: 14px;
     }
 
     .back {
-      margin-top: 80px;
+      margin-top: 90px;
     }
   </style>
 </head>
@@ -98,36 +98,35 @@
 
   <h1>Projects</h1>
   <p>
-    A selection of applied machine learning, GenAI, and research-driven projects
-    demonstrating end-to-end system design, model development, and production deployment.
+    Selected applied machine learning, GenAI, and research projects demonstrating
+    end-to-end modeling, evaluation, and production deployment.
   </p>
 
-  <!-- APPLIED ML & RESEARCH -->
-  <h2>Applied ML & Research</h2>
+  <!-- FLAGSHIP -->
+  <h2>Flagship Research Project</h2>
 
-  <!-- Project 1 -->
   <div class="card">
-    <span class="badge">Applied ML · Research</span>
-    <h3>AI/ML Research Assistant — UNC Greensboro</h3>
+    <span class="badge">Flagship · Paper Accepted</span>
+    <h3>AI/ML Research Assistant — Stock Price Prediction (UNC Greensboro)</h3>
     <p><em>February 2025 – Present</em></p>
 
     <ul>
       <li>
         Built end-to-end training and evaluation pipelines for LLM-based models,
         integrating LLaMA-2 embeddings with CNN architectures to process 10,000+
-        natural language documents.
+        annual report documents.
       </li>
       <li>
-        Engineered a time-series ML framework combining textual signals from annual
-        reports with numerical market data for predictive analytics.
+        Designed a hybrid modeling framework combining textual signals from
+        financial reports with numerical time-series market data.
       </li>
       <li>
-        Developed scalable Python ML pipelines for data ingestion, preprocessing,
-        embedding generation, model training, and evaluation across architectures.
+        Engineered scalable Python ML pipelines for data ingestion, preprocessing,
+        embedding generation, model training, and evaluation.
       </li>
       <li>
-        Designed retrieval systems using vector embeddings and contextual chunking
-        to align long-form NLP text with temporal events.
+        Developed retrieval systems using vector embeddings and contextual chunking
+        to align long-form NLP text with temporal market events.
       </li>
       <li>
         Built distributed PyTorch training pipelines optimized for GPU utilization
@@ -137,34 +136,39 @@
         Achieved 32–45% lower MAPE compared to ARIMA baselines using hybrid
         LLM + time-series modeling.
       </li>
+      <li>
+        📄 <strong>Paper accepted:</strong> <em>Stock Price Prediction Based on Annual Reports Using Large Language Models</em>.
+      </li>
     </ul>
   </div>
 
-  <!-- Project 2 -->
+  <!-- SECONDARY -->
+  <h2>Applied GenAI Project</h2>
+
   <div class="card">
-    <span class="badge">Flagship GenAI System</span>
+    <span class="badge">GenAI System</span>
     <h3>AI-Powered Academic Assistant</h3>
     <p><em>February 2025</em></p>
 
     <ul>
       <li>
-        Developed a multi-agent LLM workflow using LangChain to retrieve, summarize,
-        and validate complex academic content.
+        Developed a multi-agent LLM workflow using LangChain to retrieve,
+        summarize, and validate complex academic content.
       </li>
       <li>
         Implemented a retrieval-augmented generation (RAG) pipeline using FAISS,
-        HuggingFace embeddings, and Zephyr-7B for context-aware Q&A.
+        HuggingFace embeddings, and Zephyr-7B.
       </li>
       <li>
         Built and deployed a FastAPI backend supporting parallel inference,
         caching, and latency-optimized retrieval.
       </li>
       <li>
-        Applied advanced prompt engineering and optimization techniques to
-        improve prediction accuracy by 35%.
+        Improved model prediction accuracy by 35% through prompt engineering
+        and system-level optimization.
       </li>
       <li>
-        Achieved sub-200ms inference latency through profiling and system optimization.
+        Achieved sub-200ms inference latency through performance profiling.
       </li>
     </ul>
   </div>
@@ -172,33 +176,10 @@
   <!-- COURSEWORK -->
   <h2>Academic / Coursework</h2>
 
-  <!-- Project 3 -->
   <div class="card">
     <span class="badge">Course Project</span>
     <h3>Bird Species Classification</h3>
 
     <ul>
       <li>
-        Developed a supervised image classification model to identify bird species
-        as part of a graduate-level machine learning course.
-      </li>
-      <li>
-        Implemented CNN-based architectures and evaluated performance using
-        standard classification metrics.
-      </li>
-    </ul>
-
-    <p>
-      <em>
-        Small-scale academic project focused on model training, evaluation,
-        and performance analysis.
-      </em>
-    </p>
-  </div>
-
-  <div class="back">
-    <a href="index.html">← Back to Home</a>
-  </div>
-
-</body>
-</html>
+        Built a supervised image classification model to identify bird
