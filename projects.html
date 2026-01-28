@@ -16,155 +16,159 @@
       background: radial-gradient(circle at top, #0f172a, #020617);
       color: #e5e7eb;
       margin: 0;
-      padding: 80px 10%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
+    .container {
+      width: 100%;
+      max-width: 1000px;
     }
 
     h2 {
-      font-size: 28px;
-      margin-top: 80px;
-      color: #e5e7eb;
+      font-size: 34px;
+      margin: 0 0 24px;
+      color: #f8fafc;
     }
 
     h3 {
-      margin-top: 0;
       font-size: 22px;
+      margin: 0 0 6px;
+      color: #f8fafc;
     }
 
     p {
-      max-width: 820px;
-      line-height: 1.7;
-      font-size: 17px;
+      font-size: 15px;
       color: #cbd5f5;
+      margin: 0 0 14px;
     }
 
     ul {
-      margin-top: 12px;
-      max-width: 900px;
+      padding-left: 20px;
+      margin: 0;
       line-height: 1.7;
+      color: #cbd5f5;
+      font-size: 15px;
     }
 
     li {
       margin-bottom: 10px;
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
     .card {
       background: rgba(30, 41, 59, 0.65);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 16px;
-      padding: 32px;
-      margin-top: 40px;
-      max-width: 1050px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 18px;
+      padding: 36px;
+      margin-bottom: 28px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.55);
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.18);
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      font-weight: 500;
       color: #38bdf8;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .back {
-      margin-top: 90px;
+    .back-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
     }
   </style>
 </head>
 
 <body>
 
-  <h2>Machine Learning Experience</h2>
-  <!-- <p>
-    Selected applied machine learning, GenAI, and research projects demonstrating
-    end-to-end modeling, evaluation, and production deployment.
-  </p> -->
+  <div class="container">
 
-  <!-- FLAGSHIP -->
-  <!-- <h2>Flagship Research Project</h2> -->
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="back-btn">← Back</a>
 
-  <div class="card">
-    <!-- <span class="badge">Flagship · Paper Accepted</span> -->
-    <h3>AI/ML Research Assistant — Stock Price Prediction (UNC Greensboro)</h3>
-    <p><em>February 2025 – Present</em></p>
+    <h2>Machine Learning Experience</h2>
 
-    <ul>
-      <li>
-        Built pipelines for LLM-based models,
-        integrating LLaMA-2 embeddings with CNN architectures to process 10,000+
-        annual report documents.
-      </li>
-      <li>
-        Engineered scalable Python ML pipelines for data ingestion, preprocessing,
-        embedding generation, model training, and evaluation.
-      </li>
-      <li>
-        Developed retrieval systems using vector embeddings and contextual chunking
-        to align long-form NLP text with temporal market events.
-      </li>
-      <li>
-        Built distributed PyTorch training pipelines optimized for GPU utilization
-        and large-scale batch processing.
-      </li>
-      <li>
-        Achieved 32–45% lower MAPE compared to ARIMA baselines using hybrid
-        LLM + time-series modeling.
-      </li>
-      <li>
-        📄 <strong>Paper accepted:</strong> <em>Stock Price Prediction Based on Annual Reports Using Large Language Models</em>.
-      </li>
-    </ul>
+    <!-- FLAGSHIP PROJECT -->
+    <div class="card">
+      <h3>AI/ML Research Assistant — Stock Price Prediction (UNC Greensboro)</h3>
+      <p><em>February 2025 – Present</em></p>
+
+      <ul>
+        <li>
+          Built end-to-end pipelines for LLM-based models, integrating LLaMA-2
+          embeddings with CNN architectures to process 10,000+ annual report documents.
+        </li>
+        <li>
+          Engineered scalable Python ML pipelines for data ingestion, preprocessing,
+          embedding generation, model training, and evaluation.
+        </li>
+        <li>
+          Developed retrieval systems using vector embeddings and contextual chunking
+          to align long-form NLP text with temporal market events.
+        </li>
+        <li>
+          Built distributed PyTorch training pipelines optimized for GPU utilization
+          and large-scale batch processing.
+        </li>
+        <li>
+          Achieved 32–45% lower MAPE compared to ARIMA baselines using hybrid
+          LLM + time-series modeling.
+        </li>
+        <li>
+          📄 <strong>Paper accepted:</strong>
+          <em>Stock Price Prediction Based on Annual Reports Using Large Language Models</em>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SECONDARY PROJECTS -->
+    <h2>Projects</h2>
+
+    <div class="card">
+      <h3>AI-Powered Academic Assistant</h3>
+      <p><em>February 2025</em></p>
+
+      <ul>
+        <li>
+          Developed a multi-agent LLM workflow using LangChain to retrieve,
+          summarize, and validate complex academic content.
+        </li>
+        <li>
+          Implemented a retrieval-augmented generation (RAG) pipeline using FAISS,
+          HuggingFace embeddings, and Zephyr-7B.
+        </li>
+        <li>
+          Built and deployed a FastAPI backend supporting parallel inference,
+          caching, and latency-optimized retrieval.
+        </li>
+        <li>
+          Improved model prediction accuracy by 35% through advanced prompt
+          engineering and system-level optimization.
+        </li>
+        <li>
+          Achieved sub-200ms inference latency through performance profiling.
+        </li>
+      </ul>
+    </div>
+
   </div>
 
-  <!-- SECONDARY -->
-  <h2>Projects</h2>
-
-  <div class="card">
-    <!-- <span class="badge">GenAI System</span> -->
-    <h3>AI-Powered Academic Assistant</h3>
-    <p><em>February 2025</em></p>
-
-    <ul>
-      <li>
-        Developed a multi-agent LLM workflow using LangChain to retrieve,
-        summarize, and validate complex academic content.
-      </li>
-      <li>
-        Implemented a retrieval-augmented generation (RAG) pipeline using FAISS,
-        HuggingFace embeddings, and Zephyr-7B.
-      </li>
-      <li>
-        Built and deployed a FastAPI backend supporting parallel inference,
-        caching, and latency-optimized retrieval.
-      </li>
-      <li>
-        Improved model prediction accuracy by 35% through prompt engineering
-        and system-level optimization.
-      </li>
-      <li>
-        Achieved sub-200ms inference latency through performance profiling.
-      </li>
-    </ul>
-  </div>
+</body>
+</html>
