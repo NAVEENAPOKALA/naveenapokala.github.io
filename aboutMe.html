@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Projects | Naveena Pokala</title>
+  <title>About Me | Naveena Pokala</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Google Font -->
@@ -16,91 +16,95 @@
       background: radial-gradient(circle at top, #0f172a, #020617);
       color: #e5e7eb;
       margin: 0;
-      padding: 80px 10%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
     }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 28px;
-      margin-top: 80px;
-      color: #e5e7eb;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 22px;
-    }
-
-    p {
-      max-width: 820px;
-      line-height: 1.7;
-      font-size: 17px;
-      color: #cbd5f5;
-    }
-
-    ul {
-      margin-top: 12px;
+    .container {
+      width: 100%;
       max-width: 900px;
-      line-height: 1.7;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      text-decoration: underline;
     }
 
     .card {
       background: rgba(30, 41, 59, 0.65);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 16px;
-      padding: 32px;
-      margin-top: 40px;
-      max-width: 1050px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    h2 {
+      font-size: 34px;
+      margin: 0 0 18px;
+      color: #f8fafc;
     }
 
-    .badge {
-      display: inline-block;
-      background: rgba(56, 189, 248, 0.18);
+    p {
+      line-height: 1.75;
+      font-size: 17px;
+      color: #cbd5f5;
+      margin-bottom: 18px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      font-weight: 500;
       color: #38bdf8;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .back {
-      margin-top: 90px;
+    .back-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: #38bdf8;
     }
   </style>
 </head>
 
 <body>
 
-  <h2>About Me</h2>
-  <p>
-I am a graduate student and AI/ML Research Assistant at the University of North Carolina at Greensboro, where I design and implement end-to-end machine learning pipelines using PyTorch and large language models, covering data preprocessing, embedding generation, model training, and evaluation.
+  <div class="container">
+    <div class="card">
 
-My research on stock price prediction using annual reports and large language models resulted in a paper accepted at the ACDSA 2026 Conference, demonstrating my ability to apply advanced ML techniques to real-world financial problems.
+      <!-- Back Button -->
+      <a href="javascript:history.back()" class="back-btn">← Back</a>
 
-Alongside my research background, I bring strong software engineering experience building cloud-native microservices, RESTful APIs, and CI/CD pipelines. I value ownership, collaboration, and continuous learning, and I thrive in team-driven engineering environments. I am seeking opportunities where I can combine my software engineering expertise with machine learning to solve impactful real-world problems.
-  </p>
+      <h2>About Me</h2>
+
+      <p>
+        I am a graduate student and AI/ML Research Assistant at the University of North Carolina
+        at Greensboro, where I design and implement end-to-end machine learning pipelines using
+        PyTorch and large language models, covering data preprocessing, embedding generation,
+        model training, and evaluation.
+      </p>
+
+      <p>
+        My research on stock price prediction using annual reports and large language models
+        resulted in a paper accepted at the <strong>ACDSA 2026 Conference</strong>, demonstrating
+        my ability to apply advanced ML techniques to real-world financial problems.
+      </p>
+
+      <p>
+        Alongside my research background, I bring strong software engineering experience building
+        cloud-native microservices, RESTful APIs, and CI/CD pipelines. I value ownership,
+        collaboration, and continuous learning, and I thrive in team-driven engineering
+        environments. I am seeking opportunities where I can combine my software engineering
+        expertise with machine learning to solve impactful real-world problems.
+      </p>
+
+    </div>
+  </div>
+
+</body>
+</html>
